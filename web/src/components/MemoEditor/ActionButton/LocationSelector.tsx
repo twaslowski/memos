@@ -6,9 +6,9 @@ import LeafletMap from "@/components/LeafletMap";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Location } from "@/types/proto/api/v1/memo_service";
 import { useTranslate } from "@/utils/i18n";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 interface Props {
   location?: Location;
@@ -16,7 +16,7 @@ interface Props {
 }
 
 interface State {
-  initilized: boolean;
+  initialized: boolean;
   placeholder: string;
   position?: LatLng;
 }
@@ -24,7 +24,7 @@ interface State {
 const LocationSelector = (props: Props) => {
   const t = useTranslate();
   const [state, setState] = useState<State>({
-    initilized: false,
+    initialized: false,
     placeholder: props.location?.placeholder || "",
     position: props.location ? new LatLng(props.location.latitude, props.location.longitude) : undefined,
   });
@@ -41,7 +41,7 @@ const LocationSelector = (props: Props) => {
   useEffect(() => {
     if (popoverOpen && !props.location) {
       const handleError = (error: any, errorMessage: string) => {
-        setState({ ...state, initilized: true });
+        setState({ ...state, initialized: true });
         toast.error(errorMessage);
         console.error(error);
       };
@@ -51,7 +51,7 @@ const LocationSelector = (props: Props) => {
           (position) => {
             const lat = position.coords.latitude;
             const lng = position.coords.longitude;
-            setState({ ...state, position: new LatLng(lat, lng), initilized: true });
+            setState({ ...state, position: new LatLng(lat, lng), initialized: true });
           },
           (error) => {
             handleError(error, "Failed to get current position");
@@ -123,7 +123,7 @@ const LocationSelector = (props: Props) => {
       </TooltipProvider>
       <PopoverContent align="center">
         <div className="min-w-80 sm:w-lg p-1 flex flex-col justify-start items-start">
-          <LeafletMap key={JSON.stringify(state.initilized)} latlng={state.position} onChange={onPositionChanged} />
+          <LeafletMap key={JSON.stringify(state.initialized)} latlng={state.position} onChange={onPositionChanged} />
           <div className="mt-2 w-full flex flex-row justify-between items-center gap-2">
             <div className="flex flex-row items-center justify-start gap-2 w-full">
               <div className="relative flex-1">

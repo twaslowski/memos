@@ -3,7 +3,6 @@
 //   protoc-gen-ts_proto  v2.6.1
 //   protoc               unknown
 // source: api/v1/memo_service.proto
-
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
 import { Empty } from "../../google/protobuf/empty";
@@ -97,17 +96,11 @@ export interface Memo {
    */
   creator: string;
   /** Output only. The creation timestamp. */
-  createTime?:
-    | Date
-    | undefined;
+  createTime?: Date | undefined;
   /** Output only. The last update timestamp. */
-  updateTime?:
-    | Date
-    | undefined;
+  updateTime?: Date | undefined;
   /** The display timestamp of the memo. */
-  displayTime?:
-    | Date
-    | undefined;
+  displayTime?: Date | undefined;
   /** Required. The content of the memo in Markdown format. */
   content: string;
   /** Output only. The parsed nodes from the content. */
@@ -125,16 +118,12 @@ export interface Memo {
   /** Output only. The reactions to the memo. */
   reactions: Reaction[];
   /** Output only. The computed properties of the memo. */
-  property?:
-    | Memo_Property
-    | undefined;
+  property?: Memo_Property | undefined;
   /**
    * Output only. The name of the parent memo.
    * Format: memos/{memo}
    */
-  parent?:
-    | string
-    | undefined;
+  parent?: string | undefined;
   /** Output only. The snippet of the memo content. Plain text only. */
   snippet: string;
   /** Optional. The location of the memo. */
@@ -160,9 +149,7 @@ export interface Location {
 
 export interface CreateMemoRequest {
   /** Required. The memo to create. */
-  memo?:
-    | Memo
-    | undefined;
+  memo?: Memo | undefined;
   /**
    * Optional. The memo ID to use for this memo.
    * If empty, a unique ID will be generated.
@@ -238,13 +225,9 @@ export interface UpdateMemoRequest {
    * Required. The memo to update.
    * The `name` field is required.
    */
-  memo?:
-    | Memo
-    | undefined;
+  memo?: Memo | undefined;
   /** Required. The list of fields to update. */
-  updateMask?:
-    | string[]
-    | undefined;
+  updateMask?: string[] | undefined;
   /** Optional. If set to true, allows updating sensitive fields. */
   allowMissing: boolean;
 }
@@ -316,9 +299,7 @@ export interface ListMemoAttachmentsResponse {
 
 export interface MemoRelation {
   /** The memo in the relation. */
-  memo?:
-    | MemoRelation_Memo
-    | undefined;
+  memo?: MemoRelation_Memo | undefined;
   /** The related memo. */
   relatedMemo?: MemoRelation_Memo | undefined;
   type: MemoRelation_Type;
@@ -413,9 +394,7 @@ export interface CreateMemoCommentRequest {
    */
   name: string;
   /** Required. The comment to create. */
-  comment?:
-    | Memo
-    | undefined;
+  comment?: Memo | undefined;
   /** Optional. The comment ID to use. */
   commentId: string;
 }
@@ -837,14 +816,10 @@ export const Memo: MessageFns<Memo> = {
     message.attachments = object.attachments?.map((e) => Attachment.fromPartial(e)) || [];
     message.relations = object.relations?.map((e) => MemoRelation.fromPartial(e)) || [];
     message.reactions = object.reactions?.map((e) => Reaction.fromPartial(e)) || [];
-    message.property = (object.property !== undefined && object.property !== null)
-      ? Memo_Property.fromPartial(object.property)
-      : undefined;
+    message.property = object.property !== undefined && object.property !== null ? Memo_Property.fromPartial(object.property) : undefined;
     message.parent = object.parent ?? undefined;
     message.snippet = object.snippet ?? "";
-    message.location = (object.location !== undefined && object.location !== null)
-      ? Location.fromPartial(object.location)
-      : undefined;
+    message.location = object.location !== undefined && object.location !== null ? Location.fromPartial(object.location) : undefined;
     return message;
   },
 };
@@ -1075,7 +1050,7 @@ export const CreateMemoRequest: MessageFns<CreateMemoRequest> = {
   },
   fromPartial(object: DeepPartial<CreateMemoRequest>): CreateMemoRequest {
     const message = createBaseCreateMemoRequest();
-    message.memo = (object.memo !== undefined && object.memo !== null) ? Memo.fromPartial(object.memo) : undefined;
+    message.memo = object.memo !== undefined && object.memo !== null ? Memo.fromPartial(object.memo) : undefined;
     message.memoId = object.memoId ?? "";
     message.validateOnly = object.validateOnly ?? false;
     message.requestId = object.requestId ?? "";
@@ -1380,7 +1355,7 @@ export const UpdateMemoRequest: MessageFns<UpdateMemoRequest> = {
   },
   fromPartial(object: DeepPartial<UpdateMemoRequest>): UpdateMemoRequest {
     const message = createBaseUpdateMemoRequest();
-    message.memo = (object.memo !== undefined && object.memo !== null) ? Memo.fromPartial(object.memo) : undefined;
+    message.memo = object.memo !== undefined && object.memo !== null ? Memo.fromPartial(object.memo) : undefined;
     message.updateMask = object.updateMask ?? undefined;
     message.allowMissing = object.allowMissing ?? false;
     return message;
@@ -1846,12 +1821,9 @@ export const MemoRelation: MessageFns<MemoRelation> = {
   },
   fromPartial(object: DeepPartial<MemoRelation>): MemoRelation {
     const message = createBaseMemoRelation();
-    message.memo = (object.memo !== undefined && object.memo !== null)
-      ? MemoRelation_Memo.fromPartial(object.memo)
-      : undefined;
-    message.relatedMemo = (object.relatedMemo !== undefined && object.relatedMemo !== null)
-      ? MemoRelation_Memo.fromPartial(object.relatedMemo)
-      : undefined;
+    message.memo = object.memo !== undefined && object.memo !== null ? MemoRelation_Memo.fromPartial(object.memo) : undefined;
+    message.relatedMemo =
+      object.relatedMemo !== undefined && object.relatedMemo !== null ? MemoRelation_Memo.fromPartial(object.relatedMemo) : undefined;
     message.type = object.type ?? MemoRelation_Type.TYPE_UNSPECIFIED;
     return message;
   },
@@ -2177,9 +2149,7 @@ export const CreateMemoCommentRequest: MessageFns<CreateMemoCommentRequest> = {
   fromPartial(object: DeepPartial<CreateMemoCommentRequest>): CreateMemoCommentRequest {
     const message = createBaseCreateMemoCommentRequest();
     message.name = object.name ?? "";
-    message.comment = (object.comment !== undefined && object.comment !== null)
-      ? Memo.fromPartial(object.comment)
-      : undefined;
+    message.comment = object.comment !== undefined && object.comment !== null ? Memo.fromPartial(object.comment) : undefined;
     message.commentId = object.commentId ?? "";
     return message;
   },
@@ -2530,9 +2500,7 @@ export const UpsertMemoReactionRequest: MessageFns<UpsertMemoReactionRequest> = 
   fromPartial(object: DeepPartial<UpsertMemoReactionRequest>): UpsertMemoReactionRequest {
     const message = createBaseUpsertMemoReactionRequest();
     message.name = object.name ?? "";
-    message.reaction = (object.reaction !== undefined && object.reaction !== null)
-      ? Reaction.fromPartial(object.reaction)
-      : undefined;
+    message.reaction = object.reaction !== undefined && object.reaction !== null ? Reaction.fromPartial(object.reaction) : undefined;
     return message;
   },
 };
@@ -2598,32 +2566,7 @@ export const MemoServiceDefinition = {
       options: {
         _unknownFields: {
           8410: [new Uint8Array([4, 109, 101, 109, 111])],
-          578365826: [
-            new Uint8Array([
-              21,
-              58,
-              4,
-              109,
-              101,
-              109,
-              111,
-              34,
-              13,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              109,
-              101,
-              109,
-              111,
-              115,
-            ]),
-          ],
+          578365826: [new Uint8Array([21, 58, 4, 109, 101, 109, 111, 34, 13, 47, 97, 112, 105, 47, 118, 49, 47, 109, 101, 109, 111, 115])],
         },
       },
     },
@@ -2653,31 +2596,7 @@ export const MemoServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              24,
-              18,
-              22,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              109,
-              101,
-              109,
-              111,
-              115,
-              47,
-              42,
-              125,
+              24, 18, 22, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 109, 101, 109, 111, 115, 47, 42, 125,
             ]),
           ],
         },
@@ -2695,42 +2614,8 @@ export const MemoServiceDefinition = {
           8410: [new Uint8Array([16, 109, 101, 109, 111, 44, 117, 112, 100, 97, 116, 101, 95, 109, 97, 115, 107])],
           578365826: [
             new Uint8Array([
-              35,
-              58,
-              4,
-              109,
-              101,
-              109,
-              111,
-              50,
-              27,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              109,
-              101,
-              109,
-              111,
-              46,
-              110,
-              97,
-              109,
-              101,
-              61,
-              109,
-              101,
-              109,
-              111,
-              115,
-              47,
-              42,
-              125,
+              35, 58, 4, 109, 101, 109, 111, 50, 27, 47, 97, 112, 105, 47, 118, 49, 47, 123, 109, 101, 109, 111, 46, 110, 97, 109, 101, 61,
+              109, 101, 109, 111, 115, 47, 42, 125,
             ]),
           ],
         },
@@ -2748,31 +2633,7 @@ export const MemoServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              24,
-              42,
-              22,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              109,
-              101,
-              109,
-              111,
-              115,
-              47,
-              42,
-              125,
+              24, 42, 22, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 109, 101, 109, 111, 115, 47, 42, 125,
             ]),
           ],
         },
@@ -2788,76 +2649,12 @@ export const MemoServiceDefinition = {
       options: {
         _unknownFields: {
           8410: [
-            new Uint8Array([
-              22,
-              112,
-              97,
-              114,
-              101,
-              110,
-              116,
-              44,
-              111,
-              108,
-              100,
-              95,
-              116,
-              97,
-              103,
-              44,
-              110,
-              101,
-              119,
-              95,
-              116,
-              97,
-              103,
-            ]),
+            new Uint8Array([22, 112, 97, 114, 101, 110, 116, 44, 111, 108, 100, 95, 116, 97, 103, 44, 110, 101, 119, 95, 116, 97, 103]),
           ],
           578365826: [
             new Uint8Array([
-              41,
-              58,
-              1,
-              42,
-              50,
-              36,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              112,
-              97,
-              114,
-              101,
-              110,
-              116,
-              61,
-              109,
-              101,
-              109,
-              111,
-              115,
-              47,
-              42,
-              125,
-              47,
-              116,
-              97,
-              103,
-              115,
-              58,
-              114,
-              101,
-              110,
-              97,
-              109,
-              101,
+              41, 58, 1, 42, 50, 36, 47, 97, 112, 105, 47, 118, 49, 47, 123, 112, 97, 114, 101, 110, 116, 61, 109, 101, 109, 111, 115, 47,
+              42, 125, 47, 116, 97, 103, 115, 58, 114, 101, 110, 97, 109, 101,
             ]),
           ],
         },
@@ -2875,44 +2672,8 @@ export const MemoServiceDefinition = {
           8410: [new Uint8Array([10, 112, 97, 114, 101, 110, 116, 44, 116, 97, 103])],
           578365826: [
             new Uint8Array([
-              37,
-              42,
-              35,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              112,
-              97,
-              114,
-              101,
-              110,
-              116,
-              61,
-              109,
-              101,
-              109,
-              111,
-              115,
-              47,
-              42,
-              125,
-              47,
-              116,
-              97,
-              103,
-              115,
-              47,
-              123,
-              116,
-              97,
-              103,
-              125,
+              37, 42, 35, 47, 97, 112, 105, 47, 118, 49, 47, 123, 112, 97, 114, 101, 110, 116, 61, 109, 101, 109, 111, 115, 47, 42, 125, 47,
+              116, 97, 103, 115, 47, 123, 116, 97, 103, 125,
             ]),
           ],
         },
@@ -2930,46 +2691,8 @@ export const MemoServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              39,
-              58,
-              1,
-              42,
-              50,
-              34,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              109,
-              101,
-              109,
-              111,
-              115,
-              47,
-              42,
-              125,
-              47,
-              97,
-              116,
-              116,
-              97,
-              99,
-              104,
-              109,
-              101,
-              110,
-              116,
-              115,
+              39, 58, 1, 42, 50, 34, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 109, 101, 109, 111, 115, 47, 42, 125,
+              47, 97, 116, 116, 97, 99, 104, 109, 101, 110, 116, 115,
             ]),
           ],
         },
@@ -2987,43 +2710,8 @@ export const MemoServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              36,
-              18,
-              34,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              109,
-              101,
-              109,
-              111,
-              115,
-              47,
-              42,
-              125,
-              47,
-              97,
-              116,
-              116,
-              97,
-              99,
-              104,
-              109,
-              101,
-              110,
-              116,
-              115,
+              36, 18, 34, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 109, 101, 109, 111, 115, 47, 42, 125, 47, 97, 116,
+              116, 97, 99, 104, 109, 101, 110, 116, 115,
             ]),
           ],
         },
@@ -3041,44 +2729,8 @@ export const MemoServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              37,
-              58,
-              1,
-              42,
-              50,
-              32,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              109,
-              101,
-              109,
-              111,
-              115,
-              47,
-              42,
-              125,
-              47,
-              114,
-              101,
-              108,
-              97,
-              116,
-              105,
-              111,
-              110,
-              115,
+              37, 58, 1, 42, 50, 32, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 109, 101, 109, 111, 115, 47, 42, 125,
+              47, 114, 101, 108, 97, 116, 105, 111, 110, 115,
             ]),
           ],
         },
@@ -3096,41 +2748,8 @@ export const MemoServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              34,
-              18,
-              32,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              109,
-              101,
-              109,
-              111,
-              115,
-              47,
-              42,
-              125,
-              47,
-              114,
-              101,
-              108,
-              97,
-              116,
-              105,
-              111,
-              110,
-              115,
+              34, 18, 32, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 109, 101, 109, 111, 115, 47, 42, 125, 47, 114, 101,
+              108, 97, 116, 105, 111, 110, 115,
             ]),
           ],
         },
@@ -3148,49 +2767,8 @@ export const MemoServiceDefinition = {
           8410: [new Uint8Array([12, 110, 97, 109, 101, 44, 99, 111, 109, 109, 101, 110, 116])],
           578365826: [
             new Uint8Array([
-              42,
-              58,
-              7,
-              99,
-              111,
-              109,
-              109,
-              101,
-              110,
-              116,
-              34,
-              31,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              109,
-              101,
-              109,
-              111,
-              115,
-              47,
-              42,
-              125,
-              47,
-              99,
-              111,
-              109,
-              109,
-              101,
-              110,
-              116,
-              115,
+              42, 58, 7, 99, 111, 109, 109, 101, 110, 116, 34, 31, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 109, 101,
+              109, 111, 115, 47, 42, 125, 47, 99, 111, 109, 109, 101, 110, 116, 115,
             ]),
           ],
         },
@@ -3208,40 +2786,8 @@ export const MemoServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              33,
-              18,
-              31,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              109,
-              101,
-              109,
-              111,
-              115,
-              47,
-              42,
-              125,
-              47,
-              99,
-              111,
-              109,
-              109,
-              101,
-              110,
-              116,
-              115,
+              33, 18, 31, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 109, 101, 109, 111, 115, 47, 42, 125, 47, 99, 111,
+              109, 109, 101, 110, 116, 115,
             ]),
           ],
         },
@@ -3259,41 +2805,8 @@ export const MemoServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              34,
-              18,
-              32,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              109,
-              101,
-              109,
-              111,
-              115,
-              47,
-              42,
-              125,
-              47,
-              114,
-              101,
-              97,
-              99,
-              116,
-              105,
-              111,
-              110,
-              115,
+              34, 18, 32, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 109, 101, 109, 111, 115, 47, 42, 125, 47, 114, 101,
+              97, 99, 116, 105, 111, 110, 115,
             ]),
           ],
         },
@@ -3311,44 +2824,8 @@ export const MemoServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              37,
-              58,
-              1,
-              42,
-              34,
-              32,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              109,
-              101,
-              109,
-              111,
-              115,
-              47,
-              42,
-              125,
-              47,
-              114,
-              101,
-              97,
-              99,
-              116,
-              105,
-              111,
-              110,
-              115,
+              37, 58, 1, 42, 34, 32, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 109, 101, 109, 111, 115, 47, 42, 125,
+              47, 114, 101, 97, 99, 116, 105, 111, 110, 115,
             ]),
           ],
         },
@@ -3366,34 +2843,7 @@ export const MemoServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              28,
-              42,
-              26,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              114,
-              101,
-              97,
-              99,
-              116,
-              105,
-              111,
-              110,
-              115,
-              47,
-              42,
+              28, 42, 26, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 114, 101, 97, 99, 116, 105, 111, 110, 115, 47, 42,
               125,
             ]),
           ],
@@ -3405,11 +2855,15 @@ export const MemoServiceDefinition = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends globalThis.Array<infer U> ? globalThis.Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>;
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends globalThis.Array<infer U>
+    ? globalThis.Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function toTimestamp(date: Date): Timestamp {
   const seconds = Math.trunc(date.getTime() / 1_000);

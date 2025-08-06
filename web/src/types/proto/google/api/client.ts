@@ -3,7 +3,6 @@
 //   protoc-gen-ts_proto  v2.6.1
 //   protoc               unknown
 // source: google/api/client.proto
-
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
 import { Duration } from "../protobuf/duration";
@@ -172,33 +171,19 @@ export interface ClientLibrarySettings {
    */
   restNumericEnums: boolean;
   /** Settings for legacy Java features, supported in the Service YAML. */
-  javaSettings?:
-    | JavaSettings
-    | undefined;
+  javaSettings?: JavaSettings | undefined;
   /** Settings for C++ client libraries. */
-  cppSettings?:
-    | CppSettings
-    | undefined;
+  cppSettings?: CppSettings | undefined;
   /** Settings for PHP client libraries. */
-  phpSettings?:
-    | PhpSettings
-    | undefined;
+  phpSettings?: PhpSettings | undefined;
   /** Settings for Python client libraries. */
-  pythonSettings?:
-    | PythonSettings
-    | undefined;
+  pythonSettings?: PythonSettings | undefined;
   /** Settings for Node client libraries. */
-  nodeSettings?:
-    | NodeSettings
-    | undefined;
+  nodeSettings?: NodeSettings | undefined;
   /** Settings for .NET client libraries. */
-  dotnetSettings?:
-    | DotnetSettings
-    | undefined;
+  dotnetSettings?: DotnetSettings | undefined;
   /** Settings for Ruby client libraries. */
-  rubySettings?:
-    | RubySettings
-    | undefined;
+  rubySettings?: RubySettings | undefined;
   /** Settings for Go client libraries. */
   goSettings?: GoSettings | undefined;
 }
@@ -319,9 +304,7 @@ export interface PhpSettings {
 /** Settings for Python client libraries. */
 export interface PythonSettings {
   /** Some settings. */
-  common?:
-    | CommonLanguageSettings
-    | undefined;
+  common?: CommonLanguageSettings | undefined;
   /** Experimental features to be included during client library generation. */
   experimentalFeatures?: PythonSettings_ExperimentalFeatures | undefined;
 }
@@ -364,9 +347,7 @@ export interface NodeSettings {
 /** Settings for Dotnet client libraries. */
 export interface DotnetSettings {
   /** Some settings. */
-  common?:
-    | CommonLanguageSettings
-    | undefined;
+  common?: CommonLanguageSettings | undefined;
   /**
    * Map from original service names to renamed versions.
    * This is used when the default generated types
@@ -423,9 +404,7 @@ export interface RubySettings {
 /** Settings for Go client libraries. */
 export interface GoSettings {
   /** Some settings. */
-  common?:
-    | CommonLanguageSettings
-    | undefined;
+  common?: CommonLanguageSettings | undefined;
   /**
    * Map of service names to renamed services. Keys are the package relative
    * service names and values are the name to be used for the service client
@@ -474,9 +453,7 @@ export interface MethodSettings {
    *          max_poll_delay: 360s # 6 minutes
    *          total_poll_timeout: 54000s # 90 minutes
    */
-  longRunning?:
-    | MethodSettings_LongRunning
-    | undefined;
+  longRunning?: MethodSettings_LongRunning | undefined;
   /**
    * List of top-level fields of the request message, that should be
    * automatically populated by the client libraries based on their
@@ -505,9 +482,7 @@ export interface MethodSettings_LongRunning {
    * Initial delay after which the first poll request will be made.
    * Default value: 5 seconds.
    */
-  initialPollDelay?:
-    | Duration
-    | undefined;
+  initialPollDelay?: Duration | undefined;
   /**
    * Multiplier to gradually increase delay between subsequent polls until it
    * reaches max_poll_delay.
@@ -518,9 +493,7 @@ export interface MethodSettings_LongRunning {
    * Maximum time between two subsequent poll requests.
    * Default value: 45 seconds.
    */
-  maxPollDelay?:
-    | Duration
-    | undefined;
+  maxPollDelay?: Duration | undefined;
   /**
    * Total polling timeout.
    * Default value: 5 minutes.
@@ -627,7 +600,7 @@ export const CommonLanguageSettings: MessageFns<CommonLanguageSettings> = {
     message.referenceDocsUri = object.referenceDocsUri ?? "";
     message.destinations = object.destinations?.map((e) => e) || [];
     message.selectiveGapicGeneration =
-      (object.selectiveGapicGeneration !== undefined && object.selectiveGapicGeneration !== null)
+      object.selectiveGapicGeneration !== undefined && object.selectiveGapicGeneration !== null
         ? SelectiveGapicGeneration.fromPartial(object.selectiveGapicGeneration)
         : undefined;
     return message;
@@ -800,30 +773,22 @@ export const ClientLibrarySettings: MessageFns<ClientLibrarySettings> = {
     message.version = object.version ?? "";
     message.launchStage = object.launchStage ?? LaunchStage.LAUNCH_STAGE_UNSPECIFIED;
     message.restNumericEnums = object.restNumericEnums ?? false;
-    message.javaSettings = (object.javaSettings !== undefined && object.javaSettings !== null)
-      ? JavaSettings.fromPartial(object.javaSettings)
-      : undefined;
-    message.cppSettings = (object.cppSettings !== undefined && object.cppSettings !== null)
-      ? CppSettings.fromPartial(object.cppSettings)
-      : undefined;
-    message.phpSettings = (object.phpSettings !== undefined && object.phpSettings !== null)
-      ? PhpSettings.fromPartial(object.phpSettings)
-      : undefined;
-    message.pythonSettings = (object.pythonSettings !== undefined && object.pythonSettings !== null)
-      ? PythonSettings.fromPartial(object.pythonSettings)
-      : undefined;
-    message.nodeSettings = (object.nodeSettings !== undefined && object.nodeSettings !== null)
-      ? NodeSettings.fromPartial(object.nodeSettings)
-      : undefined;
-    message.dotnetSettings = (object.dotnetSettings !== undefined && object.dotnetSettings !== null)
-      ? DotnetSettings.fromPartial(object.dotnetSettings)
-      : undefined;
-    message.rubySettings = (object.rubySettings !== undefined && object.rubySettings !== null)
-      ? RubySettings.fromPartial(object.rubySettings)
-      : undefined;
-    message.goSettings = (object.goSettings !== undefined && object.goSettings !== null)
-      ? GoSettings.fromPartial(object.goSettings)
-      : undefined;
+    message.javaSettings =
+      object.javaSettings !== undefined && object.javaSettings !== null ? JavaSettings.fromPartial(object.javaSettings) : undefined;
+    message.cppSettings =
+      object.cppSettings !== undefined && object.cppSettings !== null ? CppSettings.fromPartial(object.cppSettings) : undefined;
+    message.phpSettings =
+      object.phpSettings !== undefined && object.phpSettings !== null ? PhpSettings.fromPartial(object.phpSettings) : undefined;
+    message.pythonSettings =
+      object.pythonSettings !== undefined && object.pythonSettings !== null ? PythonSettings.fromPartial(object.pythonSettings) : undefined;
+    message.nodeSettings =
+      object.nodeSettings !== undefined && object.nodeSettings !== null ? NodeSettings.fromPartial(object.nodeSettings) : undefined;
+    message.dotnetSettings =
+      object.dotnetSettings !== undefined && object.dotnetSettings !== null ? DotnetSettings.fromPartial(object.dotnetSettings) : undefined;
+    message.rubySettings =
+      object.rubySettings !== undefined && object.rubySettings !== null ? RubySettings.fromPartial(object.rubySettings) : undefined;
+    message.goSettings =
+      object.goSettings !== undefined && object.goSettings !== null ? GoSettings.fromPartial(object.goSettings) : undefined;
     return message;
   },
 };
@@ -1073,18 +1038,13 @@ export const JavaSettings: MessageFns<JavaSettings> = {
   fromPartial(object: DeepPartial<JavaSettings>): JavaSettings {
     const message = createBaseJavaSettings();
     message.libraryPackage = object.libraryPackage ?? "";
-    message.serviceClassNames = Object.entries(object.serviceClassNames ?? {}).reduce<{ [key: string]: string }>(
-      (acc, [key, value]) => {
-        if (value !== undefined) {
-          acc[key] = globalThis.String(value);
-        }
-        return acc;
-      },
-      {},
-    );
-    message.common = (object.common !== undefined && object.common !== null)
-      ? CommonLanguageSettings.fromPartial(object.common)
-      : undefined;
+    message.serviceClassNames = Object.entries(object.serviceClassNames ?? {}).reduce<{ [key: string]: string }>((acc, [key, value]) => {
+      if (value !== undefined) {
+        acc[key] = globalThis.String(value);
+      }
+      return acc;
+    }, {});
+    message.common = object.common !== undefined && object.common !== null ? CommonLanguageSettings.fromPartial(object.common) : undefined;
     return message;
   },
 };
@@ -1188,9 +1148,7 @@ export const CppSettings: MessageFns<CppSettings> = {
   },
   fromPartial(object: DeepPartial<CppSettings>): CppSettings {
     const message = createBaseCppSettings();
-    message.common = (object.common !== undefined && object.common !== null)
-      ? CommonLanguageSettings.fromPartial(object.common)
-      : undefined;
+    message.common = object.common !== undefined && object.common !== null ? CommonLanguageSettings.fromPartial(object.common) : undefined;
     return message;
   },
 };
@@ -1236,9 +1194,7 @@ export const PhpSettings: MessageFns<PhpSettings> = {
   },
   fromPartial(object: DeepPartial<PhpSettings>): PhpSettings {
     const message = createBasePhpSettings();
-    message.common = (object.common !== undefined && object.common !== null)
-      ? CommonLanguageSettings.fromPartial(object.common)
-      : undefined;
+    message.common = object.common !== undefined && object.common !== null ? CommonLanguageSettings.fromPartial(object.common) : undefined;
     return message;
   },
 };
@@ -1295,12 +1251,11 @@ export const PythonSettings: MessageFns<PythonSettings> = {
   },
   fromPartial(object: DeepPartial<PythonSettings>): PythonSettings {
     const message = createBasePythonSettings();
-    message.common = (object.common !== undefined && object.common !== null)
-      ? CommonLanguageSettings.fromPartial(object.common)
-      : undefined;
-    message.experimentalFeatures = (object.experimentalFeatures !== undefined && object.experimentalFeatures !== null)
-      ? PythonSettings_ExperimentalFeatures.fromPartial(object.experimentalFeatures)
-      : undefined;
+    message.common = object.common !== undefined && object.common !== null ? CommonLanguageSettings.fromPartial(object.common) : undefined;
+    message.experimentalFeatures =
+      object.experimentalFeatures !== undefined && object.experimentalFeatures !== null
+        ? PythonSettings_ExperimentalFeatures.fromPartial(object.experimentalFeatures)
+        : undefined;
     return message;
   },
 };
@@ -1416,9 +1371,7 @@ export const NodeSettings: MessageFns<NodeSettings> = {
   },
   fromPartial(object: DeepPartial<NodeSettings>): NodeSettings {
     const message = createBaseNodeSettings();
-    message.common = (object.common !== undefined && object.common !== null)
-      ? CommonLanguageSettings.fromPartial(object.common)
-      : undefined;
+    message.common = object.common !== undefined && object.common !== null ? CommonLanguageSettings.fromPartial(object.common) : undefined;
     return message;
   },
 };
@@ -1532,27 +1485,19 @@ export const DotnetSettings: MessageFns<DotnetSettings> = {
   },
   fromPartial(object: DeepPartial<DotnetSettings>): DotnetSettings {
     const message = createBaseDotnetSettings();
-    message.common = (object.common !== undefined && object.common !== null)
-      ? CommonLanguageSettings.fromPartial(object.common)
-      : undefined;
-    message.renamedServices = Object.entries(object.renamedServices ?? {}).reduce<{ [key: string]: string }>(
-      (acc, [key, value]) => {
-        if (value !== undefined) {
-          acc[key] = globalThis.String(value);
-        }
-        return acc;
-      },
-      {},
-    );
-    message.renamedResources = Object.entries(object.renamedResources ?? {}).reduce<{ [key: string]: string }>(
-      (acc, [key, value]) => {
-        if (value !== undefined) {
-          acc[key] = globalThis.String(value);
-        }
-        return acc;
-      },
-      {},
-    );
+    message.common = object.common !== undefined && object.common !== null ? CommonLanguageSettings.fromPartial(object.common) : undefined;
+    message.renamedServices = Object.entries(object.renamedServices ?? {}).reduce<{ [key: string]: string }>((acc, [key, value]) => {
+      if (value !== undefined) {
+        acc[key] = globalThis.String(value);
+      }
+      return acc;
+    }, {});
+    message.renamedResources = Object.entries(object.renamedResources ?? {}).reduce<{ [key: string]: string }>((acc, [key, value]) => {
+      if (value !== undefined) {
+        acc[key] = globalThis.String(value);
+      }
+      return acc;
+    }, {});
     message.ignoredResources = object.ignoredResources?.map((e) => e) || [];
     message.forcedNamespaceAliases = object.forcedNamespaceAliases?.map((e) => e) || [];
     message.handwrittenSignatures = object.handwrittenSignatures?.map((e) => e) || [];
@@ -1717,9 +1662,7 @@ export const RubySettings: MessageFns<RubySettings> = {
   },
   fromPartial(object: DeepPartial<RubySettings>): RubySettings {
     const message = createBaseRubySettings();
-    message.common = (object.common !== undefined && object.common !== null)
-      ? CommonLanguageSettings.fromPartial(object.common)
-      : undefined;
+    message.common = object.common !== undefined && object.common !== null ? CommonLanguageSettings.fromPartial(object.common) : undefined;
     return message;
   },
 };
@@ -1779,18 +1722,13 @@ export const GoSettings: MessageFns<GoSettings> = {
   },
   fromPartial(object: DeepPartial<GoSettings>): GoSettings {
     const message = createBaseGoSettings();
-    message.common = (object.common !== undefined && object.common !== null)
-      ? CommonLanguageSettings.fromPartial(object.common)
-      : undefined;
-    message.renamedServices = Object.entries(object.renamedServices ?? {}).reduce<{ [key: string]: string }>(
-      (acc, [key, value]) => {
-        if (value !== undefined) {
-          acc[key] = globalThis.String(value);
-        }
-        return acc;
-      },
-      {},
-    );
+    message.common = object.common !== undefined && object.common !== null ? CommonLanguageSettings.fromPartial(object.common) : undefined;
+    message.renamedServices = Object.entries(object.renamedServices ?? {}).reduce<{ [key: string]: string }>((acc, [key, value]) => {
+      if (value !== undefined) {
+        acc[key] = globalThis.String(value);
+      }
+      return acc;
+    }, {});
     return message;
   },
 };
@@ -1917,9 +1855,10 @@ export const MethodSettings: MessageFns<MethodSettings> = {
   fromPartial(object: DeepPartial<MethodSettings>): MethodSettings {
     const message = createBaseMethodSettings();
     message.selector = object.selector ?? "";
-    message.longRunning = (object.longRunning !== undefined && object.longRunning !== null)
-      ? MethodSettings_LongRunning.fromPartial(object.longRunning)
-      : undefined;
+    message.longRunning =
+      object.longRunning !== undefined && object.longRunning !== null
+        ? MethodSettings_LongRunning.fromPartial(object.longRunning)
+        : undefined;
     message.autoPopulatedFields = object.autoPopulatedFields?.map((e) => e) || [];
     return message;
   },
@@ -1999,16 +1938,13 @@ export const MethodSettings_LongRunning: MessageFns<MethodSettings_LongRunning> 
   },
   fromPartial(object: DeepPartial<MethodSettings_LongRunning>): MethodSettings_LongRunning {
     const message = createBaseMethodSettings_LongRunning();
-    message.initialPollDelay = (object.initialPollDelay !== undefined && object.initialPollDelay !== null)
-      ? Duration.fromPartial(object.initialPollDelay)
-      : undefined;
+    message.initialPollDelay =
+      object.initialPollDelay !== undefined && object.initialPollDelay !== null ? Duration.fromPartial(object.initialPollDelay) : undefined;
     message.pollDelayMultiplier = object.pollDelayMultiplier ?? 0;
-    message.maxPollDelay = (object.maxPollDelay !== undefined && object.maxPollDelay !== null)
-      ? Duration.fromPartial(object.maxPollDelay)
-      : undefined;
-    message.totalPollTimeout = (object.totalPollTimeout !== undefined && object.totalPollTimeout !== null)
-      ? Duration.fromPartial(object.totalPollTimeout)
-      : undefined;
+    message.maxPollDelay =
+      object.maxPollDelay !== undefined && object.maxPollDelay !== null ? Duration.fromPartial(object.maxPollDelay) : undefined;
+    message.totalPollTimeout =
+      object.totalPollTimeout !== undefined && object.totalPollTimeout !== null ? Duration.fromPartial(object.totalPollTimeout) : undefined;
     return message;
   },
 };
@@ -2073,11 +2009,15 @@ export const SelectiveGapicGeneration: MessageFns<SelectiveGapicGeneration> = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends globalThis.Array<infer U> ? globalThis.Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>;
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends globalThis.Array<infer U>
+    ? globalThis.Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 export interface MessageFns<T> {
   encode(message: T, writer?: BinaryWriter): BinaryWriter;

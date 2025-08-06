@@ -3,7 +3,6 @@
 //   protoc-gen-ts_proto  v2.6.1
 //   protoc               unknown
 // source: api/v1/user_service.proto
-
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
 import { HttpBody } from "../../google/api/httpbody";
@@ -37,9 +36,7 @@ export interface User {
   /** The state of the user. */
   state: State;
   /** Output only. The creation timestamp. */
-  createTime?:
-    | Date
-    | undefined;
+  createTime?: Date | undefined;
   /** Output only. The last update timestamp. */
   updateTime?: Date | undefined;
 }
@@ -145,9 +142,7 @@ export interface GetUserRequest {
 
 export interface CreateUserRequest {
   /** Required. The user to create. */
-  user?:
-    | User
-    | undefined;
+  user?: User | undefined;
   /**
    * Optional. The user ID to use for this user.
    * If empty, a unique ID will be generated.
@@ -165,13 +160,9 @@ export interface CreateUserRequest {
 
 export interface UpdateUserRequest {
   /** Required. The user to update. */
-  user?:
-    | User
-    | undefined;
+  user?: User | undefined;
   /** Required. The list of fields to update. */
-  updateMask?:
-    | string[]
-    | undefined;
+  updateMask?: string[] | undefined;
   /** Optional. If set to true, allows updating sensitive fields. */
   allowMissing: boolean;
 }
@@ -204,9 +195,7 @@ export interface UserStats {
   /** The timestamps when the memos were displayed. */
   memoDisplayTimestamps: Date[];
   /** The stats of memo types. */
-  memoTypeStats?:
-    | UserStats_MemoTypeStats
-    | undefined;
+  memoTypeStats?: UserStats_MemoTypeStats | undefined;
   /** The count of tags. */
   tagCount: { [key: string]: number };
   /** The pinned memos of the user. */
@@ -237,8 +226,7 @@ export interface GetUserStatsRequest {
 }
 
 /** This endpoint doesn't take any parameters. */
-export interface ListAllUserStatsRequest {
-}
+export interface ListAllUserStatsRequest {}
 
 export interface ListAllUserStatsResponse {
   /** The list of user statistics. */
@@ -359,9 +347,7 @@ export interface GetUserSettingRequest {
 
 export interface UpdateUserSettingRequest {
   /** Required. The user setting to update. */
-  setting?:
-    | UserSetting
-    | undefined;
+  setting?: UserSetting | undefined;
   /** Required. The list of fields to update. */
   updateMask?: string[] | undefined;
 }
@@ -412,9 +398,7 @@ export interface UserAccessToken {
   /** The description of the access token. */
   description: string;
   /** Output only. The issued timestamp. */
-  issuedAt?:
-    | Date
-    | undefined;
+  issuedAt?: Date | undefined;
   /** Optional. The expiration timestamp. */
   expiresAt?: Date | undefined;
 }
@@ -447,9 +431,7 @@ export interface CreateUserAccessTokenRequest {
    */
   parent: string;
   /** Required. The access token to create. */
-  accessToken?:
-    | UserAccessToken
-    | undefined;
+  accessToken?: UserAccessToken | undefined;
   /** Optional. The access token ID to use. */
   accessTokenId: string;
 }
@@ -471,16 +453,12 @@ export interface UserSession {
   /** The session ID. */
   sessionId: string;
   /** The timestamp when the session was created. */
-  createTime?:
-    | Date
-    | undefined;
+  createTime?: Date | undefined;
   /**
    * The timestamp when the session was last accessed.
    * Used for sliding expiration calculation (last_accessed_time + 2 weeks).
    */
-  lastAccessedTime?:
-    | Date
-    | undefined;
+  lastAccessedTime?: Date | undefined;
   /** Client information associated with this session. */
   clientInfo?: UserSession_ClientInfo | undefined;
 }
@@ -531,9 +509,7 @@ export interface UserWebhook {
   /** Optional. Human-readable name for the webhook. */
   displayName: string;
   /** The creation time of the webhook. */
-  createTime?:
-    | Date
-    | undefined;
+  createTime?: Date | undefined;
   /** The last update time of the webhook. */
   updateTime?: Date | undefined;
 }
@@ -563,9 +539,7 @@ export interface CreateUserWebhookRequest {
 
 export interface UpdateUserWebhookRequest {
   /** The webhook to update. */
-  webhook?:
-    | UserWebhook
-    | undefined;
+  webhook?: UserWebhook | undefined;
   /** The list of fields to update. */
   updateMask?: string[] | undefined;
 }
@@ -1040,7 +1014,7 @@ export const CreateUserRequest: MessageFns<CreateUserRequest> = {
   },
   fromPartial(object: DeepPartial<CreateUserRequest>): CreateUserRequest {
     const message = createBaseCreateUserRequest();
-    message.user = (object.user !== undefined && object.user !== null) ? User.fromPartial(object.user) : undefined;
+    message.user = object.user !== undefined && object.user !== null ? User.fromPartial(object.user) : undefined;
     message.userId = object.userId ?? "";
     message.validateOnly = object.validateOnly ?? false;
     message.requestId = object.requestId ?? "";
@@ -1111,7 +1085,7 @@ export const UpdateUserRequest: MessageFns<UpdateUserRequest> = {
   },
   fromPartial(object: DeepPartial<UpdateUserRequest>): UpdateUserRequest {
     const message = createBaseUpdateUserRequest();
-    message.user = (object.user !== undefined && object.user !== null) ? User.fromPartial(object.user) : undefined;
+    message.user = object.user !== undefined && object.user !== null ? User.fromPartial(object.user) : undefined;
     message.updateMask = object.updateMask ?? undefined;
     message.allowMissing = object.allowMissing ?? false;
     return message;
@@ -1330,9 +1304,10 @@ export const UserStats: MessageFns<UserStats> = {
     const message = createBaseUserStats();
     message.name = object.name ?? "";
     message.memoDisplayTimestamps = object.memoDisplayTimestamps?.map((e) => e) || [];
-    message.memoTypeStats = (object.memoTypeStats !== undefined && object.memoTypeStats !== null)
-      ? UserStats_MemoTypeStats.fromPartial(object.memoTypeStats)
-      : undefined;
+    message.memoTypeStats =
+      object.memoTypeStats !== undefined && object.memoTypeStats !== null
+        ? UserStats_MemoTypeStats.fromPartial(object.memoTypeStats)
+        : undefined;
     message.tagCount = Object.entries(object.tagCount ?? {}).reduce<{ [key: string]: number }>((acc, [key, value]) => {
       if (value !== undefined) {
         acc[key] = globalThis.Number(value);
@@ -1703,18 +1678,22 @@ export const UserSetting: MessageFns<UserSetting> = {
   fromPartial(object: DeepPartial<UserSetting>): UserSetting {
     const message = createBaseUserSetting();
     message.name = object.name ?? "";
-    message.generalSetting = (object.generalSetting !== undefined && object.generalSetting !== null)
-      ? UserSetting_GeneralSetting.fromPartial(object.generalSetting)
-      : undefined;
-    message.sessionsSetting = (object.sessionsSetting !== undefined && object.sessionsSetting !== null)
-      ? UserSetting_SessionsSetting.fromPartial(object.sessionsSetting)
-      : undefined;
-    message.accessTokensSetting = (object.accessTokensSetting !== undefined && object.accessTokensSetting !== null)
-      ? UserSetting_AccessTokensSetting.fromPartial(object.accessTokensSetting)
-      : undefined;
-    message.webhooksSetting = (object.webhooksSetting !== undefined && object.webhooksSetting !== null)
-      ? UserSetting_WebhooksSetting.fromPartial(object.webhooksSetting)
-      : undefined;
+    message.generalSetting =
+      object.generalSetting !== undefined && object.generalSetting !== null
+        ? UserSetting_GeneralSetting.fromPartial(object.generalSetting)
+        : undefined;
+    message.sessionsSetting =
+      object.sessionsSetting !== undefined && object.sessionsSetting !== null
+        ? UserSetting_SessionsSetting.fromPartial(object.sessionsSetting)
+        : undefined;
+    message.accessTokensSetting =
+      object.accessTokensSetting !== undefined && object.accessTokensSetting !== null
+        ? UserSetting_AccessTokensSetting.fromPartial(object.accessTokensSetting)
+        : undefined;
+    message.webhooksSetting =
+      object.webhooksSetting !== undefined && object.webhooksSetting !== null
+        ? UserSetting_WebhooksSetting.fromPartial(object.webhooksSetting)
+        : undefined;
     return message;
   },
 };
@@ -2037,9 +2016,7 @@ export const UpdateUserSettingRequest: MessageFns<UpdateUserSettingRequest> = {
   },
   fromPartial(object: DeepPartial<UpdateUserSettingRequest>): UpdateUserSettingRequest {
     const message = createBaseUpdateUserSettingRequest();
-    message.setting = (object.setting !== undefined && object.setting !== null)
-      ? UserSetting.fromPartial(object.setting)
-      : undefined;
+    message.setting = object.setting !== undefined && object.setting !== null ? UserSetting.fromPartial(object.setting) : undefined;
     message.updateMask = object.updateMask ?? undefined;
     return message;
   },
@@ -2483,9 +2460,8 @@ export const CreateUserAccessTokenRequest: MessageFns<CreateUserAccessTokenReque
   fromPartial(object: DeepPartial<CreateUserAccessTokenRequest>): CreateUserAccessTokenRequest {
     const message = createBaseCreateUserAccessTokenRequest();
     message.parent = object.parent ?? "";
-    message.accessToken = (object.accessToken !== undefined && object.accessToken !== null)
-      ? UserAccessToken.fromPartial(object.accessToken)
-      : undefined;
+    message.accessToken =
+      object.accessToken !== undefined && object.accessToken !== null ? UserAccessToken.fromPartial(object.accessToken) : undefined;
     message.accessTokenId = object.accessTokenId ?? "";
     return message;
   },
@@ -2626,9 +2602,8 @@ export const UserSession: MessageFns<UserSession> = {
     message.sessionId = object.sessionId ?? "";
     message.createTime = object.createTime ?? undefined;
     message.lastAccessedTime = object.lastAccessedTime ?? undefined;
-    message.clientInfo = (object.clientInfo !== undefined && object.clientInfo !== null)
-      ? UserSession_ClientInfo.fromPartial(object.clientInfo)
-      : undefined;
+    message.clientInfo =
+      object.clientInfo !== undefined && object.clientInfo !== null ? UserSession_ClientInfo.fromPartial(object.clientInfo) : undefined;
     return message;
   },
 };
@@ -3104,9 +3079,7 @@ export const CreateUserWebhookRequest: MessageFns<CreateUserWebhookRequest> = {
   fromPartial(object: DeepPartial<CreateUserWebhookRequest>): CreateUserWebhookRequest {
     const message = createBaseCreateUserWebhookRequest();
     message.parent = object.parent ?? "";
-    message.webhook = (object.webhook !== undefined && object.webhook !== null)
-      ? UserWebhook.fromPartial(object.webhook)
-      : undefined;
+    message.webhook = object.webhook !== undefined && object.webhook !== null ? UserWebhook.fromPartial(object.webhook) : undefined;
     return message;
   },
 };
@@ -3163,9 +3136,7 @@ export const UpdateUserWebhookRequest: MessageFns<UpdateUserWebhookRequest> = {
   },
   fromPartial(object: DeepPartial<UpdateUserWebhookRequest>): UpdateUserWebhookRequest {
     const message = createBaseUpdateUserWebhookRequest();
-    message.webhook = (object.webhook !== undefined && object.webhook !== null)
-      ? UserWebhook.fromPartial(object.webhook)
-      : undefined;
+    message.webhook = object.webhook !== undefined && object.webhook !== null ? UserWebhook.fromPartial(object.webhook) : undefined;
     message.updateMask = object.updateMask ?? undefined;
     return message;
   },
@@ -3247,31 +3218,7 @@ export const UserServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              24,
-              18,
-              22,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              125,
+              24, 18, 22, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 117, 115, 101, 114, 115, 47, 42, 125,
             ]),
           ],
         },
@@ -3287,32 +3234,7 @@ export const UserServiceDefinition = {
       options: {
         _unknownFields: {
           8410: [new Uint8Array([4, 117, 115, 101, 114])],
-          578365826: [
-            new Uint8Array([
-              21,
-              58,
-              4,
-              117,
-              115,
-              101,
-              114,
-              34,
-              13,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              117,
-              115,
-              101,
-              114,
-              115,
-            ]),
-          ],
+          578365826: [new Uint8Array([21, 58, 4, 117, 115, 101, 114, 34, 13, 47, 97, 112, 105, 47, 118, 49, 47, 117, 115, 101, 114, 115])],
         },
       },
     },
@@ -3328,42 +3250,8 @@ export const UserServiceDefinition = {
           8410: [new Uint8Array([16, 117, 115, 101, 114, 44, 117, 112, 100, 97, 116, 101, 95, 109, 97, 115, 107])],
           578365826: [
             new Uint8Array([
-              35,
-              58,
-              4,
-              117,
-              115,
-              101,
-              114,
-              50,
-              27,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              117,
-              115,
-              101,
-              114,
-              46,
-              110,
-              97,
-              109,
-              101,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              125,
+              35, 58, 4, 117, 115, 101, 114, 50, 27, 47, 97, 112, 105, 47, 118, 49, 47, 123, 117, 115, 101, 114, 46, 110, 97, 109, 101, 61,
+              117, 115, 101, 114, 115, 47, 42, 125,
             ]),
           ],
         },
@@ -3381,31 +3269,7 @@ export const UserServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              24,
-              42,
-              22,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              125,
+              24, 42, 22, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 117, 115, 101, 114, 115, 47, 42, 125,
             ]),
           ],
         },
@@ -3423,38 +3287,8 @@ export const UserServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              31,
-              18,
-              29,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              125,
-              47,
-              97,
-              118,
-              97,
-              116,
-              97,
-              114,
+              31, 18, 29, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 117, 115, 101, 114, 115, 47, 42, 125, 47, 97, 118,
+              97, 116, 97, 114,
             ]),
           ],
         },
@@ -3469,32 +3303,7 @@ export const UserServiceDefinition = {
       responseStream: false,
       options: {
         _unknownFields: {
-          578365826: [
-            new Uint8Array([
-              21,
-              18,
-              19,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              117,
-              115,
-              101,
-              114,
-              115,
-              58,
-              115,
-              116,
-              97,
-              116,
-              115,
-            ]),
-          ],
+          578365826: [new Uint8Array([21, 18, 19, 47, 97, 112, 105, 47, 118, 49, 47, 117, 115, 101, 114, 115, 58, 115, 116, 97, 116, 115])],
         },
       },
     },
@@ -3510,40 +3319,8 @@ export const UserServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              33,
-              18,
-              31,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              125,
-              58,
-              103,
-              101,
-              116,
-              83,
-              116,
-              97,
-              116,
-              115,
+              33, 18, 31, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 117, 115, 101, 114, 115, 47, 42, 125, 58, 103, 101,
+              116, 83, 116, 97, 116, 115,
             ]),
           ],
         },
@@ -3561,42 +3338,8 @@ export const UserServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              35,
-              18,
-              33,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              47,
-              115,
-              101,
-              116,
-              116,
-              105,
-              110,
-              103,
-              115,
-              47,
-              42,
-              125,
+              35, 18, 33, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 117, 115, 101, 114, 115, 47, 42, 47, 115, 101, 116,
+              116, 105, 110, 103, 115, 47, 42, 125,
             ]),
           ],
         },
@@ -3611,85 +3354,11 @@ export const UserServiceDefinition = {
       responseStream: false,
       options: {
         _unknownFields: {
-          8410: [
-            new Uint8Array([
-              19,
-              115,
-              101,
-              116,
-              116,
-              105,
-              110,
-              103,
-              44,
-              117,
-              112,
-              100,
-              97,
-              116,
-              101,
-              95,
-              109,
-              97,
-              115,
-              107,
-            ]),
-          ],
+          8410: [new Uint8Array([19, 115, 101, 116, 116, 105, 110, 103, 44, 117, 112, 100, 97, 116, 101, 95, 109, 97, 115, 107])],
           578365826: [
             new Uint8Array([
-              52,
-              58,
-              7,
-              115,
-              101,
-              116,
-              116,
-              105,
-              110,
-              103,
-              50,
-              41,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              115,
-              101,
-              116,
-              116,
-              105,
-              110,
-              103,
-              46,
-              110,
-              97,
-              109,
-              101,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              47,
-              115,
-              101,
-              116,
-              116,
-              105,
-              110,
-              103,
-              115,
-              47,
-              42,
-              125,
+              52, 58, 7, 115, 101, 116, 116, 105, 110, 103, 50, 41, 47, 97, 112, 105, 47, 118, 49, 47, 123, 115, 101, 116, 116, 105, 110,
+              103, 46, 110, 97, 109, 101, 61, 117, 115, 101, 114, 115, 47, 42, 47, 115, 101, 116, 116, 105, 110, 103, 115, 47, 42, 125,
             ]),
           ],
         },
@@ -3707,42 +3376,8 @@ export const UserServiceDefinition = {
           8410: [new Uint8Array([6, 112, 97, 114, 101, 110, 116])],
           578365826: [
             new Uint8Array([
-              35,
-              18,
-              33,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              112,
-              97,
-              114,
-              101,
-              110,
-              116,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              125,
-              47,
-              115,
-              101,
-              116,
-              116,
-              105,
-              110,
-              103,
-              115,
+              35, 18, 33, 47, 97, 112, 105, 47, 118, 49, 47, 123, 112, 97, 114, 101, 110, 116, 61, 117, 115, 101, 114, 115, 47, 42, 125, 47,
+              115, 101, 116, 116, 105, 110, 103, 115,
             ]),
           ],
         },
@@ -3760,46 +3395,8 @@ export const UserServiceDefinition = {
           8410: [new Uint8Array([6, 112, 97, 114, 101, 110, 116])],
           578365826: [
             new Uint8Array([
-              39,
-              18,
-              37,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              112,
-              97,
-              114,
-              101,
-              110,
-              116,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              125,
-              47,
-              97,
-              99,
-              99,
-              101,
-              115,
-              115,
-              84,
-              111,
-              107,
-              101,
-              110,
-              115,
+              39, 18, 37, 47, 97, 112, 105, 47, 118, 49, 47, 123, 112, 97, 114, 101, 110, 116, 61, 117, 115, 101, 114, 115, 47, 42, 125, 47,
+              97, 99, 99, 101, 115, 115, 84, 111, 107, 101, 110, 115,
             ]),
           ],
         },
@@ -3814,86 +3411,11 @@ export const UserServiceDefinition = {
       responseStream: false,
       options: {
         _unknownFields: {
-          8410: [
-            new Uint8Array([
-              19,
-              112,
-              97,
-              114,
-              101,
-              110,
-              116,
-              44,
-              97,
-              99,
-              99,
-              101,
-              115,
-              115,
-              95,
-              116,
-              111,
-              107,
-              101,
-              110,
-            ]),
-          ],
+          8410: [new Uint8Array([19, 112, 97, 114, 101, 110, 116, 44, 97, 99, 99, 101, 115, 115, 95, 116, 111, 107, 101, 110])],
           578365826: [
             new Uint8Array([
-              53,
-              58,
-              12,
-              97,
-              99,
-              99,
-              101,
-              115,
-              115,
-              95,
-              116,
-              111,
-              107,
-              101,
-              110,
-              34,
-              37,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              112,
-              97,
-              114,
-              101,
-              110,
-              116,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              125,
-              47,
-              97,
-              99,
-              99,
-              101,
-              115,
-              115,
-              84,
-              111,
-              107,
-              101,
-              110,
-              115,
+              53, 58, 12, 97, 99, 99, 101, 115, 115, 95, 116, 111, 107, 101, 110, 34, 37, 47, 97, 112, 105, 47, 118, 49, 47, 123, 112, 97,
+              114, 101, 110, 116, 61, 117, 115, 101, 114, 115, 47, 42, 125, 47, 97, 99, 99, 101, 115, 115, 84, 111, 107, 101, 110, 115,
             ]),
           ],
         },
@@ -3911,46 +3433,8 @@ export const UserServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              39,
-              42,
-              37,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              47,
-              97,
-              99,
-              99,
-              101,
-              115,
-              115,
-              84,
-              111,
-              107,
-              101,
-              110,
-              115,
-              47,
-              42,
-              125,
+              39, 42, 37, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 117, 115, 101, 114, 115, 47, 42, 47, 97, 99, 99,
+              101, 115, 115, 84, 111, 107, 101, 110, 115, 47, 42, 125,
             ]),
           ],
         },
@@ -3968,42 +3452,8 @@ export const UserServiceDefinition = {
           8410: [new Uint8Array([6, 112, 97, 114, 101, 110, 116])],
           578365826: [
             new Uint8Array([
-              35,
-              18,
-              33,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              112,
-              97,
-              114,
-              101,
-              110,
-              116,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              125,
-              47,
-              115,
-              101,
-              115,
-              115,
-              105,
-              111,
-              110,
-              115,
+              35, 18, 33, 47, 97, 112, 105, 47, 118, 49, 47, 123, 112, 97, 114, 101, 110, 116, 61, 117, 115, 101, 114, 115, 47, 42, 125, 47,
+              115, 101, 115, 115, 105, 111, 110, 115,
             ]),
           ],
         },
@@ -4021,42 +3471,8 @@ export const UserServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              35,
-              42,
-              33,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              47,
-              115,
-              101,
-              115,
-              115,
-              105,
-              111,
-              110,
-              115,
-              47,
-              42,
-              125,
+              35, 42, 33, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 117, 115, 101, 114, 115, 47, 42, 47, 115, 101, 115,
+              115, 105, 111, 110, 115, 47, 42, 125,
             ]),
           ],
         },
@@ -4074,42 +3490,8 @@ export const UserServiceDefinition = {
           8410: [new Uint8Array([6, 112, 97, 114, 101, 110, 116])],
           578365826: [
             new Uint8Array([
-              35,
-              18,
-              33,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              112,
-              97,
-              114,
-              101,
-              110,
-              116,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              125,
-              47,
-              119,
-              101,
-              98,
-              104,
-              111,
-              111,
-              107,
-              115,
+              35, 18, 33, 47, 97, 112, 105, 47, 118, 49, 47, 123, 112, 97, 114, 101, 110, 116, 61, 117, 115, 101, 114, 115, 47, 42, 125, 47,
+              119, 101, 98, 104, 111, 111, 107, 115,
             ]),
           ],
         },
@@ -4127,51 +3509,8 @@ export const UserServiceDefinition = {
           8410: [new Uint8Array([14, 112, 97, 114, 101, 110, 116, 44, 119, 101, 98, 104, 111, 111, 107])],
           578365826: [
             new Uint8Array([
-              44,
-              58,
-              7,
-              119,
-              101,
-              98,
-              104,
-              111,
-              111,
-              107,
-              34,
-              33,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              112,
-              97,
-              114,
-              101,
-              110,
-              116,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              125,
-              47,
-              119,
-              101,
-              98,
-              104,
-              111,
-              111,
-              107,
-              115,
+              44, 58, 7, 119, 101, 98, 104, 111, 111, 107, 34, 33, 47, 97, 112, 105, 47, 118, 49, 47, 123, 112, 97, 114, 101, 110, 116, 61,
+              117, 115, 101, 114, 115, 47, 42, 125, 47, 119, 101, 98, 104, 111, 111, 107, 115,
             ]),
           ],
         },
@@ -4186,85 +3525,11 @@ export const UserServiceDefinition = {
       responseStream: false,
       options: {
         _unknownFields: {
-          8410: [
-            new Uint8Array([
-              19,
-              119,
-              101,
-              98,
-              104,
-              111,
-              111,
-              107,
-              44,
-              117,
-              112,
-              100,
-              97,
-              116,
-              101,
-              95,
-              109,
-              97,
-              115,
-              107,
-            ]),
-          ],
+          8410: [new Uint8Array([19, 119, 101, 98, 104, 111, 111, 107, 44, 117, 112, 100, 97, 116, 101, 95, 109, 97, 115, 107])],
           578365826: [
             new Uint8Array([
-              52,
-              58,
-              7,
-              119,
-              101,
-              98,
-              104,
-              111,
-              111,
-              107,
-              50,
-              41,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              119,
-              101,
-              98,
-              104,
-              111,
-              111,
-              107,
-              46,
-              110,
-              97,
-              109,
-              101,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              47,
-              119,
-              101,
-              98,
-              104,
-              111,
-              111,
-              107,
-              115,
-              47,
-              42,
-              125,
+              52, 58, 7, 119, 101, 98, 104, 111, 111, 107, 50, 41, 47, 97, 112, 105, 47, 118, 49, 47, 123, 119, 101, 98, 104, 111, 111, 107,
+              46, 110, 97, 109, 101, 61, 117, 115, 101, 114, 115, 47, 42, 47, 119, 101, 98, 104, 111, 111, 107, 115, 47, 42, 125,
             ]),
           ],
         },
@@ -4282,42 +3547,8 @@ export const UserServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              35,
-              42,
-              33,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              47,
-              119,
-              101,
-              98,
-              104,
-              111,
-              111,
-              107,
-              115,
-              47,
-              42,
-              125,
+              35, 42, 33, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 117, 115, 101, 114, 115, 47, 42, 47, 119, 101, 98,
+              104, 111, 111, 107, 115, 47, 42, 125,
             ]),
           ],
         },
@@ -4328,11 +3559,15 @@ export const UserServiceDefinition = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends globalThis.Array<infer U> ? globalThis.Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>;
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends globalThis.Array<infer U>
+    ? globalThis.Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function toTimestamp(date: Date): Timestamp {
   const seconds = Math.trunc(date.getTime() / 1_000);

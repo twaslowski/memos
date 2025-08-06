@@ -3,7 +3,6 @@
 //   protoc-gen-ts_proto  v2.6.1
 //   protoc               unknown
 // source: api/v1/auth_service.proto
-
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
 import { Empty } from "../../google/protobuf/empty";
@@ -12,13 +11,10 @@ import { User } from "./user_service";
 
 export const protobufPackage = "memos.api.v1";
 
-export interface GetCurrentSessionRequest {
-}
+export interface GetCurrentSessionRequest {}
 
 export interface GetCurrentSessionResponse {
-  user?:
-    | User
-    | undefined;
+  user?: User | undefined;
   /**
    * Last time the session was accessed.
    * Used for sliding expiration calculation (last_accessed_time + 2 weeks).
@@ -28,9 +24,7 @@ export interface GetCurrentSessionResponse {
 
 export interface CreateSessionRequest {
   /** Username and password authentication method. */
-  passwordCredentials?:
-    | CreateSessionRequest_PasswordCredentials
-    | undefined;
+  passwordCredentials?: CreateSessionRequest_PasswordCredentials | undefined;
   /** SSO provider authentication method. */
   ssoCredentials?: CreateSessionRequest_SSOCredentials | undefined;
 }
@@ -70,9 +64,7 @@ export interface CreateSessionRequest_SSOCredentials {
 
 export interface CreateSessionResponse {
   /** The authenticated user information. */
-  user?:
-    | User
-    | undefined;
+  user?: User | undefined;
   /**
    * Last time the session was accessed.
    * Used for sliding expiration calculation (last_accessed_time + 2 weeks).
@@ -80,8 +72,7 @@ export interface CreateSessionResponse {
   lastAccessedAt?: Date | undefined;
 }
 
-export interface DeleteSessionRequest {
-}
+export interface DeleteSessionRequest {}
 
 function createBaseGetCurrentSessionRequest(): GetCurrentSessionRequest {
   return {};
@@ -169,7 +160,7 @@ export const GetCurrentSessionResponse: MessageFns<GetCurrentSessionResponse> = 
   },
   fromPartial(object: DeepPartial<GetCurrentSessionResponse>): GetCurrentSessionResponse {
     const message = createBaseGetCurrentSessionResponse();
-    message.user = (object.user !== undefined && object.user !== null) ? User.fromPartial(object.user) : undefined;
+    message.user = object.user !== undefined && object.user !== null ? User.fromPartial(object.user) : undefined;
     message.lastAccessedAt = object.lastAccessedAt ?? undefined;
     return message;
   },
@@ -227,12 +218,14 @@ export const CreateSessionRequest: MessageFns<CreateSessionRequest> = {
   },
   fromPartial(object: DeepPartial<CreateSessionRequest>): CreateSessionRequest {
     const message = createBaseCreateSessionRequest();
-    message.passwordCredentials = (object.passwordCredentials !== undefined && object.passwordCredentials !== null)
-      ? CreateSessionRequest_PasswordCredentials.fromPartial(object.passwordCredentials)
-      : undefined;
-    message.ssoCredentials = (object.ssoCredentials !== undefined && object.ssoCredentials !== null)
-      ? CreateSessionRequest_SSOCredentials.fromPartial(object.ssoCredentials)
-      : undefined;
+    message.passwordCredentials =
+      object.passwordCredentials !== undefined && object.passwordCredentials !== null
+        ? CreateSessionRequest_PasswordCredentials.fromPartial(object.passwordCredentials)
+        : undefined;
+    message.ssoCredentials =
+      object.ssoCredentials !== undefined && object.ssoCredentials !== null
+        ? CreateSessionRequest_SSOCredentials.fromPartial(object.ssoCredentials)
+        : undefined;
     return message;
   },
 };
@@ -417,7 +410,7 @@ export const CreateSessionResponse: MessageFns<CreateSessionResponse> = {
   },
   fromPartial(object: DeepPartial<CreateSessionResponse>): CreateSessionResponse {
     const message = createBaseCreateSessionResponse();
-    message.user = (object.user !== undefined && object.user !== null) ? User.fromPartial(object.user) : undefined;
+    message.user = object.user !== undefined && object.user !== null ? User.fromPartial(object.user) : undefined;
     message.lastAccessedAt = object.lastAccessedAt ?? undefined;
     return message;
   },
@@ -476,38 +469,8 @@ export const AuthServiceDefinition = {
         _unknownFields: {
           578365826: [
             new Uint8Array([
-              31,
-              18,
-              29,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              97,
-              117,
-              116,
-              104,
-              47,
-              115,
-              101,
-              115,
-              115,
-              105,
-              111,
-              110,
-              115,
-              47,
-              99,
-              117,
-              114,
-              114,
-              101,
-              110,
-              116,
+              31, 18, 29, 47, 97, 112, 105, 47, 118, 49, 47, 97, 117, 116, 104, 47, 115, 101, 115, 115, 105, 111, 110, 115, 47, 99, 117,
+              114, 114, 101, 110, 116,
             ]),
           ],
         },
@@ -527,33 +490,7 @@ export const AuthServiceDefinition = {
         _unknownFields: {
           578365826: [
             new Uint8Array([
-              26,
-              58,
-              1,
-              42,
-              34,
-              21,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              97,
-              117,
-              116,
-              104,
-              47,
-              115,
-              101,
-              115,
-              115,
-              105,
-              111,
-              110,
-              115,
+              26, 58, 1, 42, 34, 21, 47, 97, 112, 105, 47, 118, 49, 47, 97, 117, 116, 104, 47, 115, 101, 115, 115, 105, 111, 110, 115,
             ]),
           ],
         },
@@ -573,38 +510,8 @@ export const AuthServiceDefinition = {
         _unknownFields: {
           578365826: [
             new Uint8Array([
-              31,
-              42,
-              29,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              97,
-              117,
-              116,
-              104,
-              47,
-              115,
-              101,
-              115,
-              115,
-              105,
-              111,
-              110,
-              115,
-              47,
-              99,
-              117,
-              114,
-              114,
-              101,
-              110,
-              116,
+              31, 42, 29, 47, 97, 112, 105, 47, 118, 49, 47, 97, 117, 116, 104, 47, 115, 101, 115, 115, 105, 111, 110, 115, 47, 99, 117,
+              114, 114, 101, 110, 116,
             ]),
           ],
         },
@@ -615,11 +522,15 @@ export const AuthServiceDefinition = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends globalThis.Array<infer U> ? globalThis.Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>;
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends globalThis.Array<infer U>
+    ? globalThis.Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function toTimestamp(date: Date): Timestamp {
   const seconds = Math.trunc(date.getTime() / 1_000);

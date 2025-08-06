@@ -3,7 +3,6 @@
 //   protoc-gen-ts_proto  v2.6.1
 //   protoc               unknown
 // source: api/v1/attachment_service.proto
-
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
 import { HttpBody } from "../../google/api/httpbody";
@@ -20,9 +19,7 @@ export interface Attachment {
    */
   name: string;
   /** Output only. The creation timestamp. */
-  createTime?:
-    | Date
-    | undefined;
+  createTime?: Date | undefined;
   /** The filename of the attachment. */
   filename: string;
   /** Input only. The content of the attachment. */
@@ -42,9 +39,7 @@ export interface Attachment {
 
 export interface CreateAttachmentRequest {
   /** Required. The attachment to create. */
-  attachment?:
-    | Attachment
-    | undefined;
+  attachment?: Attachment | undefined;
   /**
    * Optional. The attachment ID to use for this attachment.
    * If empty, a unique ID will be generated.
@@ -113,9 +108,7 @@ export interface GetAttachmentBinaryRequest {
 
 export interface UpdateAttachmentRequest {
   /** Required. The attachment which replaces the attachment on the server. */
-  attachment?:
-    | Attachment
-    | undefined;
+  attachment?: Attachment | undefined;
   /** Required. The list of fields to update. */
   updateMask?: string[] | undefined;
 }
@@ -319,9 +312,8 @@ export const CreateAttachmentRequest: MessageFns<CreateAttachmentRequest> = {
   },
   fromPartial(object: DeepPartial<CreateAttachmentRequest>): CreateAttachmentRequest {
     const message = createBaseCreateAttachmentRequest();
-    message.attachment = (object.attachment !== undefined && object.attachment !== null)
-      ? Attachment.fromPartial(object.attachment)
-      : undefined;
+    message.attachment =
+      object.attachment !== undefined && object.attachment !== null ? Attachment.fromPartial(object.attachment) : undefined;
     message.attachmentId = object.attachmentId ?? "";
     return message;
   },
@@ -647,9 +639,8 @@ export const UpdateAttachmentRequest: MessageFns<UpdateAttachmentRequest> = {
   },
   fromPartial(object: DeepPartial<UpdateAttachmentRequest>): UpdateAttachmentRequest {
     const message = createBaseUpdateAttachmentRequest();
-    message.attachment = (object.attachment !== undefined && object.attachment !== null)
-      ? Attachment.fromPartial(object.attachment)
-      : undefined;
+    message.attachment =
+      object.attachment !== undefined && object.attachment !== null ? Attachment.fromPartial(object.attachment) : undefined;
     message.updateMask = object.updateMask ?? undefined;
     return message;
   },
@@ -718,40 +709,8 @@ export const AttachmentServiceDefinition = {
           8410: [new Uint8Array([10, 97, 116, 116, 97, 99, 104, 109, 101, 110, 116])],
           578365826: [
             new Uint8Array([
-              33,
-              58,
-              10,
-              97,
-              116,
-              116,
-              97,
-              99,
-              104,
-              109,
-              101,
-              110,
-              116,
-              34,
-              19,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              97,
-              116,
-              116,
-              97,
-              99,
-              104,
-              109,
-              101,
-              110,
-              116,
-              115,
+              33, 58, 10, 97, 116, 116, 97, 99, 104, 109, 101, 110, 116, 34, 19, 47, 97, 112, 105, 47, 118, 49, 47, 97, 116, 116, 97, 99,
+              104, 109, 101, 110, 116, 115,
             ]),
           ],
         },
@@ -766,32 +725,7 @@ export const AttachmentServiceDefinition = {
       responseStream: false,
       options: {
         _unknownFields: {
-          578365826: [
-            new Uint8Array([
-              21,
-              18,
-              19,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              97,
-              116,
-              116,
-              97,
-              99,
-              104,
-              109,
-              101,
-              110,
-              116,
-              115,
-            ]),
-          ],
+          578365826: [new Uint8Array([21, 18, 19, 47, 97, 112, 105, 47, 118, 49, 47, 97, 116, 116, 97, 99, 104, 109, 101, 110, 116, 115])],
         },
       },
     },
@@ -807,37 +741,8 @@ export const AttachmentServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              30,
-              18,
-              28,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              97,
-              116,
-              116,
-              97,
-              99,
-              104,
-              109,
-              101,
-              110,
-              116,
-              115,
-              47,
-              42,
-              125,
+              30, 18, 28, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 97, 116, 116, 97, 99, 104, 109, 101, 110, 116, 115,
+              47, 42, 125,
             ]),
           ],
         },
@@ -854,74 +759,13 @@ export const AttachmentServiceDefinition = {
         _unknownFields: {
           8410: [
             new Uint8Array([
-              23,
-              110,
-              97,
-              109,
-              101,
-              44,
-              102,
-              105,
-              108,
-              101,
-              110,
-              97,
-              109,
-              101,
-              44,
-              116,
-              104,
-              117,
-              109,
-              98,
-              110,
-              97,
-              105,
-              108,
+              23, 110, 97, 109, 101, 44, 102, 105, 108, 101, 110, 97, 109, 101, 44, 116, 104, 117, 109, 98, 110, 97, 105, 108,
             ]),
           ],
           578365826: [
             new Uint8Array([
-              39,
-              18,
-              37,
-              47,
-              102,
-              105,
-              108,
-              101,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              97,
-              116,
-              116,
-              97,
-              99,
-              104,
-              109,
-              101,
-              110,
-              116,
-              115,
-              47,
-              42,
-              125,
-              47,
-              123,
-              102,
-              105,
-              108,
-              101,
-              110,
-              97,
-              109,
-              101,
-              125,
+              39, 18, 37, 47, 102, 105, 108, 101, 47, 123, 110, 97, 109, 101, 61, 97, 116, 116, 97, 99, 104, 109, 101, 110, 116, 115, 47,
+              42, 125, 47, 123, 102, 105, 108, 101, 110, 97, 109, 101, 125,
             ]),
           ],
         },
@@ -937,88 +781,12 @@ export const AttachmentServiceDefinition = {
       options: {
         _unknownFields: {
           8410: [
-            new Uint8Array([
-              22,
-              97,
-              116,
-              116,
-              97,
-              99,
-              104,
-              109,
-              101,
-              110,
-              116,
-              44,
-              117,
-              112,
-              100,
-              97,
-              116,
-              101,
-              95,
-              109,
-              97,
-              115,
-              107,
-            ]),
+            new Uint8Array([22, 97, 116, 116, 97, 99, 104, 109, 101, 110, 116, 44, 117, 112, 100, 97, 116, 101, 95, 109, 97, 115, 107]),
           ],
           578365826: [
             new Uint8Array([
-              53,
-              58,
-              10,
-              97,
-              116,
-              116,
-              97,
-              99,
-              104,
-              109,
-              101,
-              110,
-              116,
-              50,
-              39,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              97,
-              116,
-              116,
-              97,
-              99,
-              104,
-              109,
-              101,
-              110,
-              116,
-              46,
-              110,
-              97,
-              109,
-              101,
-              61,
-              97,
-              116,
-              116,
-              97,
-              99,
-              104,
-              109,
-              101,
-              110,
-              116,
-              115,
-              47,
-              42,
-              125,
+              53, 58, 10, 97, 116, 116, 97, 99, 104, 109, 101, 110, 116, 50, 39, 47, 97, 112, 105, 47, 118, 49, 47, 123, 97, 116, 116, 97,
+              99, 104, 109, 101, 110, 116, 46, 110, 97, 109, 101, 61, 97, 116, 116, 97, 99, 104, 109, 101, 110, 116, 115, 47, 42, 125,
             ]),
           ],
         },
@@ -1036,37 +804,8 @@ export const AttachmentServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              30,
-              42,
-              28,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              97,
-              116,
-              116,
-              97,
-              99,
-              104,
-              109,
-              101,
-              110,
-              116,
-              115,
-              47,
-              42,
-              125,
+              30, 42, 28, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 97, 116, 116, 97, 99, 104, 109, 101, 110, 116, 115,
+              47, 42, 125,
             ]),
           ],
         },
@@ -1077,11 +816,15 @@ export const AttachmentServiceDefinition = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends globalThis.Array<infer U> ? globalThis.Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>;
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends globalThis.Array<infer U>
+    ? globalThis.Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function toTimestamp(date: Date): Timestamp {
   const seconds = Math.trunc(date.getTime() / 1_000);

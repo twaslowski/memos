@@ -3,7 +3,6 @@
 //   protoc-gen-ts_proto  v2.6.1
 //   protoc               unknown
 // source: google/api/http.proto
-
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
 
@@ -309,34 +308,22 @@ export interface HttpRule {
    * Maps to HTTP GET. Used for listing and getting information about
    * resources.
    */
-  get?:
-    | string
-    | undefined;
+  get?: string | undefined;
   /** Maps to HTTP PUT. Used for replacing a resource. */
-  put?:
-    | string
-    | undefined;
+  put?: string | undefined;
   /** Maps to HTTP POST. Used for creating a resource or performing an action. */
-  post?:
-    | string
-    | undefined;
+  post?: string | undefined;
   /** Maps to HTTP DELETE. Used for deleting a resource. */
-  delete?:
-    | string
-    | undefined;
+  delete?: string | undefined;
   /** Maps to HTTP PATCH. Used for updating a resource. */
-  patch?:
-    | string
-    | undefined;
+  patch?: string | undefined;
   /**
    * The custom pattern is used for specifying an HTTP method that is not
    * included in the `pattern` field, such as HEAD, or "*" to leave the
    * HTTP method unspecified for this rule. The wild-card rule is useful
    * for services that provide content to Web (HTML) clients.
    */
-  custom?:
-    | CustomHttpPattern
-    | undefined;
+  custom?: CustomHttpPattern | undefined;
   /**
    * The name of the request field whose value is mapped to the HTTP request
    * body, or `*` for mapping all request fields not captured by the path
@@ -586,9 +573,7 @@ export const HttpRule: MessageFns<HttpRule> = {
     message.post = object.post ?? undefined;
     message.delete = object.delete ?? undefined;
     message.patch = object.patch ?? undefined;
-    message.custom = (object.custom !== undefined && object.custom !== null)
-      ? CustomHttpPattern.fromPartial(object.custom)
-      : undefined;
+    message.custom = object.custom !== undefined && object.custom !== null ? CustomHttpPattern.fromPartial(object.custom) : undefined;
     message.body = object.body ?? "";
     message.responseBody = object.responseBody ?? "";
     message.additionalBindings = object.additionalBindings?.map((e) => HttpRule.fromPartial(e)) || [];
@@ -656,11 +641,15 @@ export const CustomHttpPattern: MessageFns<CustomHttpPattern> = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends globalThis.Array<infer U> ? globalThis.Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>;
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends globalThis.Array<infer U>
+    ? globalThis.Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 export interface MessageFns<T> {
   encode(message: T, writer?: BinaryWriter): BinaryWriter;

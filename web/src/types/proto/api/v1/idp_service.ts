@@ -3,7 +3,6 @@
 //   protoc-gen-ts_proto  v2.6.1
 //   protoc               unknown
 // source: api/v1/idp_service.proto
-
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
 import { Empty } from "../../google/protobuf/empty";
@@ -82,8 +81,7 @@ export interface OAuth2Config {
   fieldMapping?: FieldMapping | undefined;
 }
 
-export interface ListIdentityProvidersRequest {
-}
+export interface ListIdentityProvidersRequest {}
 
 export interface ListIdentityProvidersResponse {
   /** The list of identity providers. */
@@ -100,9 +98,7 @@ export interface GetIdentityProviderRequest {
 
 export interface CreateIdentityProviderRequest {
   /** Required. The identity provider to create. */
-  identityProvider?:
-    | IdentityProvider
-    | undefined;
+  identityProvider?: IdentityProvider | undefined;
   /**
    * Optional. The ID to use for the identity provider, which will become the final component of the resource name.
    * If not provided, the system will generate one.
@@ -112,9 +108,7 @@ export interface CreateIdentityProviderRequest {
 
 export interface UpdateIdentityProviderRequest {
   /** Required. The identity provider to update. */
-  identityProvider?:
-    | IdentityProvider
-    | undefined;
+  identityProvider?: IdentityProvider | undefined;
   /**
    * Required. The update mask applies to the resource. Only the top level fields of
    * IdentityProvider are supported.
@@ -219,9 +213,7 @@ export const IdentityProvider: MessageFns<IdentityProvider> = {
     message.type = object.type ?? IdentityProvider_Type.TYPE_UNSPECIFIED;
     message.title = object.title ?? "";
     message.identifierFilter = object.identifierFilter ?? "";
-    message.config = (object.config !== undefined && object.config !== null)
-      ? IdentityProviderConfig.fromPartial(object.config)
-      : undefined;
+    message.config = object.config !== undefined && object.config !== null ? IdentityProviderConfig.fromPartial(object.config) : undefined;
     return message;
   },
 };
@@ -267,9 +259,8 @@ export const IdentityProviderConfig: MessageFns<IdentityProviderConfig> = {
   },
   fromPartial(object: DeepPartial<IdentityProviderConfig>): IdentityProviderConfig {
     const message = createBaseIdentityProviderConfig();
-    message.oauth2Config = (object.oauth2Config !== undefined && object.oauth2Config !== null)
-      ? OAuth2Config.fromPartial(object.oauth2Config)
-      : undefined;
+    message.oauth2Config =
+      object.oauth2Config !== undefined && object.oauth2Config !== null ? OAuth2Config.fromPartial(object.oauth2Config) : undefined;
     return message;
   },
 };
@@ -477,9 +468,8 @@ export const OAuth2Config: MessageFns<OAuth2Config> = {
     message.tokenUrl = object.tokenUrl ?? "";
     message.userInfoUrl = object.userInfoUrl ?? "";
     message.scopes = object.scopes?.map((e) => e) || [];
-    message.fieldMapping = (object.fieldMapping !== undefined && object.fieldMapping !== null)
-      ? FieldMapping.fromPartial(object.fieldMapping)
-      : undefined;
+    message.fieldMapping =
+      object.fieldMapping !== undefined && object.fieldMapping !== null ? FieldMapping.fromPartial(object.fieldMapping) : undefined;
     return message;
   },
 };
@@ -662,9 +652,10 @@ export const CreateIdentityProviderRequest: MessageFns<CreateIdentityProviderReq
   },
   fromPartial(object: DeepPartial<CreateIdentityProviderRequest>): CreateIdentityProviderRequest {
     const message = createBaseCreateIdentityProviderRequest();
-    message.identityProvider = (object.identityProvider !== undefined && object.identityProvider !== null)
-      ? IdentityProvider.fromPartial(object.identityProvider)
-      : undefined;
+    message.identityProvider =
+      object.identityProvider !== undefined && object.identityProvider !== null
+        ? IdentityProvider.fromPartial(object.identityProvider)
+        : undefined;
     message.identityProviderId = object.identityProviderId ?? "";
     return message;
   },
@@ -722,9 +713,10 @@ export const UpdateIdentityProviderRequest: MessageFns<UpdateIdentityProviderReq
   },
   fromPartial(object: DeepPartial<UpdateIdentityProviderRequest>): UpdateIdentityProviderRequest {
     const message = createBaseUpdateIdentityProviderRequest();
-    message.identityProvider = (object.identityProvider !== undefined && object.identityProvider !== null)
-      ? IdentityProvider.fromPartial(object.identityProvider)
-      : undefined;
+    message.identityProvider =
+      object.identityProvider !== undefined && object.identityProvider !== null
+        ? IdentityProvider.fromPartial(object.identityProvider)
+        : undefined;
     message.updateMask = object.updateMask ?? undefined;
     return message;
   },
@@ -792,33 +784,7 @@ export const IdentityProviderServiceDefinition = {
         _unknownFields: {
           578365826: [
             new Uint8Array([
-              27,
-              18,
-              25,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              105,
-              100,
-              101,
-              110,
-              116,
-              105,
-              116,
-              121,
-              80,
-              114,
-              111,
-              118,
-              105,
-              100,
-              101,
-              114,
+              27, 18, 25, 47, 97, 112, 105, 47, 118, 49, 47, 105, 100, 101, 110, 116, 105, 116, 121, 80, 114, 111, 118, 105, 100, 101, 114,
               115,
             ]),
           ],
@@ -837,43 +803,8 @@ export const IdentityProviderServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              36,
-              18,
-              34,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              105,
-              100,
-              101,
-              110,
-              116,
-              105,
-              116,
-              121,
-              80,
-              114,
-              111,
-              118,
-              105,
-              100,
-              101,
-              114,
-              115,
-              47,
-              42,
-              125,
+              36, 18, 34, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 105, 100, 101, 110, 116, 105, 116, 121, 80, 114,
+              111, 118, 105, 100, 101, 114, 115, 47, 42, 125,
             ]),
           ],
         },
@@ -888,58 +819,11 @@ export const IdentityProviderServiceDefinition = {
       responseStream: false,
       options: {
         _unknownFields: {
-          8410: [
-            new Uint8Array([17, 105, 100, 101, 110, 116, 105, 116, 121, 95, 112, 114, 111, 118, 105, 100, 101, 114]),
-          ],
+          8410: [new Uint8Array([17, 105, 100, 101, 110, 116, 105, 116, 121, 95, 112, 114, 111, 118, 105, 100, 101, 114])],
           578365826: [
             new Uint8Array([
-              46,
-              58,
-              17,
-              105,
-              100,
-              101,
-              110,
-              116,
-              105,
-              116,
-              121,
-              95,
-              112,
-              114,
-              111,
-              118,
-              105,
-              100,
-              101,
-              114,
-              34,
-              25,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              105,
-              100,
-              101,
-              110,
-              116,
-              105,
-              116,
-              121,
-              80,
-              114,
-              111,
-              118,
-              105,
-              100,
-              101,
-              114,
-              115,
+              46, 58, 17, 105, 100, 101, 110, 116, 105, 116, 121, 95, 112, 114, 111, 118, 105, 100, 101, 114, 34, 25, 47, 97, 112, 105, 47,
+              118, 49, 47, 105, 100, 101, 110, 116, 105, 116, 121, 80, 114, 111, 118, 105, 100, 101, 114, 115,
             ]),
           ],
         },
@@ -956,114 +840,15 @@ export const IdentityProviderServiceDefinition = {
         _unknownFields: {
           8410: [
             new Uint8Array([
-              29,
-              105,
-              100,
-              101,
-              110,
-              116,
-              105,
-              116,
-              121,
-              95,
-              112,
-              114,
-              111,
-              118,
-              105,
-              100,
-              101,
-              114,
-              44,
-              117,
-              112,
-              100,
-              97,
-              116,
-              101,
-              95,
-              109,
-              97,
-              115,
-              107,
+              29, 105, 100, 101, 110, 116, 105, 116, 121, 95, 112, 114, 111, 118, 105, 100, 101, 114, 44, 117, 112, 100, 97, 116, 101, 95,
+              109, 97, 115, 107,
             ]),
           ],
           578365826: [
             new Uint8Array([
-              73,
-              58,
-              17,
-              105,
-              100,
-              101,
-              110,
-              116,
-              105,
-              116,
-              121,
-              95,
-              112,
-              114,
-              111,
-              118,
-              105,
-              100,
-              101,
-              114,
-              50,
-              52,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              105,
-              100,
-              101,
-              110,
-              116,
-              105,
-              116,
-              121,
-              95,
-              112,
-              114,
-              111,
-              118,
-              105,
-              100,
-              101,
-              114,
-              46,
-              110,
-              97,
-              109,
-              101,
-              61,
-              105,
-              100,
-              101,
-              110,
-              116,
-              105,
-              116,
-              121,
-              80,
-              114,
-              111,
-              118,
-              105,
-              100,
-              101,
-              114,
-              115,
-              47,
-              42,
-              125,
+              73, 58, 17, 105, 100, 101, 110, 116, 105, 116, 121, 95, 112, 114, 111, 118, 105, 100, 101, 114, 50, 52, 47, 97, 112, 105, 47,
+              118, 49, 47, 123, 105, 100, 101, 110, 116, 105, 116, 121, 95, 112, 114, 111, 118, 105, 100, 101, 114, 46, 110, 97, 109, 101,
+              61, 105, 100, 101, 110, 116, 105, 116, 121, 80, 114, 111, 118, 105, 100, 101, 114, 115, 47, 42, 125,
             ]),
           ],
         },
@@ -1081,43 +866,8 @@ export const IdentityProviderServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              36,
-              42,
-              34,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              105,
-              100,
-              101,
-              110,
-              116,
-              105,
-              116,
-              121,
-              80,
-              114,
-              111,
-              118,
-              105,
-              100,
-              101,
-              114,
-              115,
-              47,
-              42,
-              125,
+              36, 42, 34, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 105, 100, 101, 110, 116, 105, 116, 121, 80, 114,
+              111, 118, 105, 100, 101, 114, 115, 47, 42, 125,
             ]),
           ],
         },
@@ -1128,11 +878,15 @@ export const IdentityProviderServiceDefinition = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends globalThis.Array<infer U> ? globalThis.Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>;
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends globalThis.Array<infer U>
+    ? globalThis.Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 export interface MessageFns<T> {
   encode(message: T, writer?: BinaryWriter): BinaryWriter;

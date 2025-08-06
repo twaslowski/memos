@@ -3,7 +3,6 @@
 //   protoc-gen-ts_proto  v2.6.1
 //   protoc               unknown
 // source: api/v1/inbox_service.proto
-
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
 import { Empty } from "../../google/protobuf/empty";
@@ -31,9 +30,7 @@ export interface Inbox {
   /** The status of the inbox notification. */
   status: Inbox_Status;
   /** Output only. The creation timestamp. */
-  createTime?:
-    | Date
-    | undefined;
+  createTime?: Date | undefined;
   /** The type of the inbox notification. */
   type: Inbox_Type;
   /** Optional. The activity ID associated with this inbox notification. */
@@ -172,13 +169,9 @@ export interface ListInboxesResponse {
 
 export interface UpdateInboxRequest {
   /** Required. The inbox to update. */
-  inbox?:
-    | Inbox
-    | undefined;
+  inbox?: Inbox | undefined;
   /** Required. The list of fields to update. */
-  updateMask?:
-    | string[]
-    | undefined;
+  updateMask?: string[] | undefined;
   /** Optional. If set to true, allows updating missing fields. */
   allowMissing: boolean;
 }
@@ -544,7 +537,7 @@ export const UpdateInboxRequest: MessageFns<UpdateInboxRequest> = {
   },
   fromPartial(object: DeepPartial<UpdateInboxRequest>): UpdateInboxRequest {
     const message = createBaseUpdateInboxRequest();
-    message.inbox = (object.inbox !== undefined && object.inbox !== null) ? Inbox.fromPartial(object.inbox) : undefined;
+    message.inbox = object.inbox !== undefined && object.inbox !== null ? Inbox.fromPartial(object.inbox) : undefined;
     message.updateMask = object.updateMask ?? undefined;
     message.allowMissing = object.allowMissing ?? false;
     return message;
@@ -614,41 +607,8 @@ export const InboxServiceDefinition = {
           8410: [new Uint8Array([6, 112, 97, 114, 101, 110, 116])],
           578365826: [
             new Uint8Array([
-              34,
-              18,
-              32,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              112,
-              97,
-              114,
-              101,
-              110,
-              116,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              125,
-              47,
-              105,
-              110,
-              98,
-              111,
-              120,
-              101,
-              115,
+              34, 18, 32, 47, 97, 112, 105, 47, 118, 49, 47, 123, 112, 97, 114, 101, 110, 116, 61, 117, 115, 101, 114, 115, 47, 42, 125, 47,
+              105, 110, 98, 111, 120, 101, 115,
             ]),
           ],
         },
@@ -666,46 +626,8 @@ export const InboxServiceDefinition = {
           8410: [new Uint8Array([17, 105, 110, 98, 111, 120, 44, 117, 112, 100, 97, 116, 101, 95, 109, 97, 115, 107])],
           578365826: [
             new Uint8Array([
-              39,
-              58,
-              5,
-              105,
-              110,
-              98,
-              111,
-              120,
-              50,
-              30,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              105,
-              110,
-              98,
-              111,
-              120,
-              46,
-              110,
-              97,
-              109,
-              101,
-              61,
-              105,
-              110,
-              98,
-              111,
-              120,
-              101,
-              115,
-              47,
-              42,
-              125,
+              39, 58, 5, 105, 110, 98, 111, 120, 50, 30, 47, 97, 112, 105, 47, 118, 49, 47, 123, 105, 110, 98, 111, 120, 46, 110, 97, 109,
+              101, 61, 105, 110, 98, 111, 120, 101, 115, 47, 42, 125,
             ]),
           ],
         },
@@ -723,33 +645,7 @@ export const InboxServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              26,
-              42,
-              24,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              105,
-              110,
-              98,
-              111,
-              120,
-              101,
-              115,
-              47,
-              42,
-              125,
+              26, 42, 24, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 105, 110, 98, 111, 120, 101, 115, 47, 42, 125,
             ]),
           ],
         },
@@ -760,11 +656,15 @@ export const InboxServiceDefinition = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends globalThis.Array<infer U> ? globalThis.Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>;
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends globalThis.Array<infer U>
+    ? globalThis.Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function toTimestamp(date: Date): Timestamp {
   const seconds = Math.trunc(date.getTime() / 1_000);

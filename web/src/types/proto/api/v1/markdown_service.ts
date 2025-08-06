@@ -3,7 +3,6 @@
 //   protoc-gen-ts_proto  v2.6.1
 //   protoc               unknown
 // source: api/v1/markdown_service.proto
-
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
 
@@ -283,9 +282,7 @@ export interface Node {
   taskListItemNode?: TaskListItemNode | undefined;
   mathBlockNode?: MathBlockNode | undefined;
   tableNode?: TableNode | undefined;
-  embeddedContentNode?:
-    | EmbeddedContentNode
-    | undefined;
+  embeddedContentNode?: EmbeddedContentNode | undefined;
   /** Inline nodes. */
   textNode?: TextNode | undefined;
   boldNode?: BoldNode | undefined;
@@ -307,8 +304,7 @@ export interface Node {
   htmlElementNode?: HTMLElementNode | undefined;
 }
 
-export interface LineBreakNode {
-}
+export interface LineBreakNode {}
 
 export interface ParagraphNode {
   children: Node[];
@@ -1318,102 +1314,79 @@ export const Node: MessageFns<Node> = {
   fromPartial(object: DeepPartial<Node>): Node {
     const message = createBaseNode();
     message.type = object.type ?? NodeType.NODE_UNSPECIFIED;
-    message.lineBreakNode = (object.lineBreakNode !== undefined && object.lineBreakNode !== null)
-      ? LineBreakNode.fromPartial(object.lineBreakNode)
-      : undefined;
-    message.paragraphNode = (object.paragraphNode !== undefined && object.paragraphNode !== null)
-      ? ParagraphNode.fromPartial(object.paragraphNode)
-      : undefined;
-    message.codeBlockNode = (object.codeBlockNode !== undefined && object.codeBlockNode !== null)
-      ? CodeBlockNode.fromPartial(object.codeBlockNode)
-      : undefined;
-    message.headingNode = (object.headingNode !== undefined && object.headingNode !== null)
-      ? HeadingNode.fromPartial(object.headingNode)
-      : undefined;
-    message.horizontalRuleNode = (object.horizontalRuleNode !== undefined && object.horizontalRuleNode !== null)
-      ? HorizontalRuleNode.fromPartial(object.horizontalRuleNode)
-      : undefined;
-    message.blockquoteNode = (object.blockquoteNode !== undefined && object.blockquoteNode !== null)
-      ? BlockquoteNode.fromPartial(object.blockquoteNode)
-      : undefined;
-    message.listNode = (object.listNode !== undefined && object.listNode !== null)
-      ? ListNode.fromPartial(object.listNode)
-      : undefined;
-    message.orderedListItemNode = (object.orderedListItemNode !== undefined && object.orderedListItemNode !== null)
-      ? OrderedListItemNode.fromPartial(object.orderedListItemNode)
-      : undefined;
+    message.lineBreakNode =
+      object.lineBreakNode !== undefined && object.lineBreakNode !== null ? LineBreakNode.fromPartial(object.lineBreakNode) : undefined;
+    message.paragraphNode =
+      object.paragraphNode !== undefined && object.paragraphNode !== null ? ParagraphNode.fromPartial(object.paragraphNode) : undefined;
+    message.codeBlockNode =
+      object.codeBlockNode !== undefined && object.codeBlockNode !== null ? CodeBlockNode.fromPartial(object.codeBlockNode) : undefined;
+    message.headingNode =
+      object.headingNode !== undefined && object.headingNode !== null ? HeadingNode.fromPartial(object.headingNode) : undefined;
+    message.horizontalRuleNode =
+      object.horizontalRuleNode !== undefined && object.horizontalRuleNode !== null
+        ? HorizontalRuleNode.fromPartial(object.horizontalRuleNode)
+        : undefined;
+    message.blockquoteNode =
+      object.blockquoteNode !== undefined && object.blockquoteNode !== null ? BlockquoteNode.fromPartial(object.blockquoteNode) : undefined;
+    message.listNode = object.listNode !== undefined && object.listNode !== null ? ListNode.fromPartial(object.listNode) : undefined;
+    message.orderedListItemNode =
+      object.orderedListItemNode !== undefined && object.orderedListItemNode !== null
+        ? OrderedListItemNode.fromPartial(object.orderedListItemNode)
+        : undefined;
     message.unorderedListItemNode =
-      (object.unorderedListItemNode !== undefined && object.unorderedListItemNode !== null)
+      object.unorderedListItemNode !== undefined && object.unorderedListItemNode !== null
         ? UnorderedListItemNode.fromPartial(object.unorderedListItemNode)
         : undefined;
-    message.taskListItemNode = (object.taskListItemNode !== undefined && object.taskListItemNode !== null)
-      ? TaskListItemNode.fromPartial(object.taskListItemNode)
-      : undefined;
-    message.mathBlockNode = (object.mathBlockNode !== undefined && object.mathBlockNode !== null)
-      ? MathBlockNode.fromPartial(object.mathBlockNode)
-      : undefined;
-    message.tableNode = (object.tableNode !== undefined && object.tableNode !== null)
-      ? TableNode.fromPartial(object.tableNode)
-      : undefined;
-    message.embeddedContentNode = (object.embeddedContentNode !== undefined && object.embeddedContentNode !== null)
-      ? EmbeddedContentNode.fromPartial(object.embeddedContentNode)
-      : undefined;
-    message.textNode = (object.textNode !== undefined && object.textNode !== null)
-      ? TextNode.fromPartial(object.textNode)
-      : undefined;
-    message.boldNode = (object.boldNode !== undefined && object.boldNode !== null)
-      ? BoldNode.fromPartial(object.boldNode)
-      : undefined;
-    message.italicNode = (object.italicNode !== undefined && object.italicNode !== null)
-      ? ItalicNode.fromPartial(object.italicNode)
-      : undefined;
-    message.boldItalicNode = (object.boldItalicNode !== undefined && object.boldItalicNode !== null)
-      ? BoldItalicNode.fromPartial(object.boldItalicNode)
-      : undefined;
-    message.codeNode = (object.codeNode !== undefined && object.codeNode !== null)
-      ? CodeNode.fromPartial(object.codeNode)
-      : undefined;
-    message.imageNode = (object.imageNode !== undefined && object.imageNode !== null)
-      ? ImageNode.fromPartial(object.imageNode)
-      : undefined;
-    message.linkNode = (object.linkNode !== undefined && object.linkNode !== null)
-      ? LinkNode.fromPartial(object.linkNode)
-      : undefined;
-    message.autoLinkNode = (object.autoLinkNode !== undefined && object.autoLinkNode !== null)
-      ? AutoLinkNode.fromPartial(object.autoLinkNode)
-      : undefined;
-    message.tagNode = (object.tagNode !== undefined && object.tagNode !== null)
-      ? TagNode.fromPartial(object.tagNode)
-      : undefined;
-    message.strikethroughNode = (object.strikethroughNode !== undefined && object.strikethroughNode !== null)
-      ? StrikethroughNode.fromPartial(object.strikethroughNode)
-      : undefined;
+    message.taskListItemNode =
+      object.taskListItemNode !== undefined && object.taskListItemNode !== null
+        ? TaskListItemNode.fromPartial(object.taskListItemNode)
+        : undefined;
+    message.mathBlockNode =
+      object.mathBlockNode !== undefined && object.mathBlockNode !== null ? MathBlockNode.fromPartial(object.mathBlockNode) : undefined;
+    message.tableNode = object.tableNode !== undefined && object.tableNode !== null ? TableNode.fromPartial(object.tableNode) : undefined;
+    message.embeddedContentNode =
+      object.embeddedContentNode !== undefined && object.embeddedContentNode !== null
+        ? EmbeddedContentNode.fromPartial(object.embeddedContentNode)
+        : undefined;
+    message.textNode = object.textNode !== undefined && object.textNode !== null ? TextNode.fromPartial(object.textNode) : undefined;
+    message.boldNode = object.boldNode !== undefined && object.boldNode !== null ? BoldNode.fromPartial(object.boldNode) : undefined;
+    message.italicNode =
+      object.italicNode !== undefined && object.italicNode !== null ? ItalicNode.fromPartial(object.italicNode) : undefined;
+    message.boldItalicNode =
+      object.boldItalicNode !== undefined && object.boldItalicNode !== null ? BoldItalicNode.fromPartial(object.boldItalicNode) : undefined;
+    message.codeNode = object.codeNode !== undefined && object.codeNode !== null ? CodeNode.fromPartial(object.codeNode) : undefined;
+    message.imageNode = object.imageNode !== undefined && object.imageNode !== null ? ImageNode.fromPartial(object.imageNode) : undefined;
+    message.linkNode = object.linkNode !== undefined && object.linkNode !== null ? LinkNode.fromPartial(object.linkNode) : undefined;
+    message.autoLinkNode =
+      object.autoLinkNode !== undefined && object.autoLinkNode !== null ? AutoLinkNode.fromPartial(object.autoLinkNode) : undefined;
+    message.tagNode = object.tagNode !== undefined && object.tagNode !== null ? TagNode.fromPartial(object.tagNode) : undefined;
+    message.strikethroughNode =
+      object.strikethroughNode !== undefined && object.strikethroughNode !== null
+        ? StrikethroughNode.fromPartial(object.strikethroughNode)
+        : undefined;
     message.escapingCharacterNode =
-      (object.escapingCharacterNode !== undefined && object.escapingCharacterNode !== null)
+      object.escapingCharacterNode !== undefined && object.escapingCharacterNode !== null
         ? EscapingCharacterNode.fromPartial(object.escapingCharacterNode)
         : undefined;
-    message.mathNode = (object.mathNode !== undefined && object.mathNode !== null)
-      ? MathNode.fromPartial(object.mathNode)
-      : undefined;
-    message.highlightNode = (object.highlightNode !== undefined && object.highlightNode !== null)
-      ? HighlightNode.fromPartial(object.highlightNode)
-      : undefined;
-    message.subscriptNode = (object.subscriptNode !== undefined && object.subscriptNode !== null)
-      ? SubscriptNode.fromPartial(object.subscriptNode)
-      : undefined;
-    message.superscriptNode = (object.superscriptNode !== undefined && object.superscriptNode !== null)
-      ? SuperscriptNode.fromPartial(object.superscriptNode)
-      : undefined;
+    message.mathNode = object.mathNode !== undefined && object.mathNode !== null ? MathNode.fromPartial(object.mathNode) : undefined;
+    message.highlightNode =
+      object.highlightNode !== undefined && object.highlightNode !== null ? HighlightNode.fromPartial(object.highlightNode) : undefined;
+    message.subscriptNode =
+      object.subscriptNode !== undefined && object.subscriptNode !== null ? SubscriptNode.fromPartial(object.subscriptNode) : undefined;
+    message.superscriptNode =
+      object.superscriptNode !== undefined && object.superscriptNode !== null
+        ? SuperscriptNode.fromPartial(object.superscriptNode)
+        : undefined;
     message.referencedContentNode =
-      (object.referencedContentNode !== undefined && object.referencedContentNode !== null)
+      object.referencedContentNode !== undefined && object.referencedContentNode !== null
         ? ReferencedContentNode.fromPartial(object.referencedContentNode)
         : undefined;
-    message.spoilerNode = (object.spoilerNode !== undefined && object.spoilerNode !== null)
-      ? SpoilerNode.fromPartial(object.spoilerNode)
-      : undefined;
-    message.htmlElementNode = (object.htmlElementNode !== undefined && object.htmlElementNode !== null)
-      ? HTMLElementNode.fromPartial(object.htmlElementNode)
-      : undefined;
+    message.spoilerNode =
+      object.spoilerNode !== undefined && object.spoilerNode !== null ? SpoilerNode.fromPartial(object.spoilerNode) : undefined;
+    message.htmlElementNode =
+      object.htmlElementNode !== undefined && object.htmlElementNode !== null
+        ? HTMLElementNode.fromPartial(object.htmlElementNode)
+        : undefined;
     return message;
   },
 };
@@ -3140,15 +3113,12 @@ export const HTMLElementNode: MessageFns<HTMLElementNode> = {
   fromPartial(object: DeepPartial<HTMLElementNode>): HTMLElementNode {
     const message = createBaseHTMLElementNode();
     message.tagName = object.tagName ?? "";
-    message.attributes = Object.entries(object.attributes ?? {}).reduce<{ [key: string]: string }>(
-      (acc, [key, value]) => {
-        if (value !== undefined) {
-          acc[key] = globalThis.String(value);
-        }
-        return acc;
-      },
-      {},
-    );
+    message.attributes = Object.entries(object.attributes ?? {}).reduce<{ [key: string]: string }>((acc, [key, value]) => {
+      if (value !== undefined) {
+        acc[key] = globalThis.String(value);
+      }
+      return acc;
+    }, {});
     return message;
   },
 };
@@ -3230,34 +3200,7 @@ export const MarkdownServiceDefinition = {
         _unknownFields: {
           578365826: [
             new Uint8Array([
-              27,
-              58,
-              1,
-              42,
-              34,
-              22,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              109,
-              97,
-              114,
-              107,
-              100,
-              111,
-              119,
-              110,
-              58,
-              112,
-              97,
-              114,
-              115,
-              101,
+              27, 58, 1, 42, 34, 22, 47, 97, 112, 105, 47, 118, 49, 47, 109, 97, 114, 107, 100, 111, 119, 110, 58, 112, 97, 114, 115, 101,
             ]),
           ],
         },
@@ -3277,36 +3220,8 @@ export const MarkdownServiceDefinition = {
         _unknownFields: {
           578365826: [
             new Uint8Array([
-              29,
-              58,
-              1,
-              42,
-              34,
-              24,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              109,
-              97,
-              114,
-              107,
-              100,
-              111,
-              119,
-              110,
-              58,
-              114,
-              101,
-              115,
-              116,
-              111,
-              114,
-              101,
+              29, 58, 1, 42, 34, 24, 47, 97, 112, 105, 47, 118, 49, 47, 109, 97, 114, 107, 100, 111, 119, 110, 58, 114, 101, 115, 116, 111,
+              114, 101,
             ]),
           ],
         },
@@ -3326,38 +3241,8 @@ export const MarkdownServiceDefinition = {
         _unknownFields: {
           578365826: [
             new Uint8Array([
-              31,
-              58,
-              1,
-              42,
-              34,
-              26,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              109,
-              97,
-              114,
-              107,
-              100,
-              111,
-              119,
-              110,
-              58,
-              115,
-              116,
-              114,
-              105,
-              110,
-              103,
-              105,
-              102,
-              121,
+              31, 58, 1, 42, 34, 26, 47, 97, 112, 105, 47, 118, 49, 47, 109, 97, 114, 107, 100, 111, 119, 110, 58, 115, 116, 114, 105, 110,
+              103, 105, 102, 121,
             ]),
           ],
         },
@@ -3377,43 +3262,8 @@ export const MarkdownServiceDefinition = {
         _unknownFields: {
           578365826: [
             new Uint8Array([
-              36,
-              18,
-              34,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              109,
-              97,
-              114,
-              107,
-              100,
-              111,
-              119,
-              110,
-              47,
-              108,
-              105,
-              110,
-              107,
-              115,
-              58,
-              103,
-              101,
-              116,
-              77,
-              101,
-              116,
-              97,
-              100,
-              97,
-              116,
-              97,
+              36, 18, 34, 47, 97, 112, 105, 47, 118, 49, 47, 109, 97, 114, 107, 100, 111, 119, 110, 47, 108, 105, 110, 107, 115, 58, 103,
+              101, 116, 77, 101, 116, 97, 100, 97, 116, 97,
             ]),
           ],
         },
@@ -3424,11 +3274,15 @@ export const MarkdownServiceDefinition = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends globalThis.Array<infer U> ? globalThis.Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>;
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends globalThis.Array<infer U>
+    ? globalThis.Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 export interface MessageFns<T> {
   encode(message: T, writer?: BinaryWriter): BinaryWriter;

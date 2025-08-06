@@ -3,7 +3,6 @@
 //   protoc-gen-ts_proto  v2.6.1
 //   protoc               unknown
 // source: api/v1/shortcut_service.proto
-
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
 import { Empty } from "../../google/protobuf/empty";
@@ -51,18 +50,14 @@ export interface CreateShortcutRequest {
    */
   parent: string;
   /** Required. The shortcut to create. */
-  shortcut?:
-    | Shortcut
-    | undefined;
+  shortcut?: Shortcut | undefined;
   /** Optional. If set, validate the request, but do not actually create the shortcut. */
   validateOnly: boolean;
 }
 
 export interface UpdateShortcutRequest {
   /** Required. The shortcut resource which replaces the resource on the server. */
-  shortcut?:
-    | Shortcut
-    | undefined;
+  shortcut?: Shortcut | undefined;
   /** Optional. The list of fields to update. */
   updateMask?: string[] | undefined;
 }
@@ -347,9 +342,7 @@ export const CreateShortcutRequest: MessageFns<CreateShortcutRequest> = {
   fromPartial(object: DeepPartial<CreateShortcutRequest>): CreateShortcutRequest {
     const message = createBaseCreateShortcutRequest();
     message.parent = object.parent ?? "";
-    message.shortcut = (object.shortcut !== undefined && object.shortcut !== null)
-      ? Shortcut.fromPartial(object.shortcut)
-      : undefined;
+    message.shortcut = object.shortcut !== undefined && object.shortcut !== null ? Shortcut.fromPartial(object.shortcut) : undefined;
     message.validateOnly = object.validateOnly ?? false;
     return message;
   },
@@ -407,9 +400,7 @@ export const UpdateShortcutRequest: MessageFns<UpdateShortcutRequest> = {
   },
   fromPartial(object: DeepPartial<UpdateShortcutRequest>): UpdateShortcutRequest {
     const message = createBaseUpdateShortcutRequest();
-    message.shortcut = (object.shortcut !== undefined && object.shortcut !== null)
-      ? Shortcut.fromPartial(object.shortcut)
-      : undefined;
+    message.shortcut = object.shortcut !== undefined && object.shortcut !== null ? Shortcut.fromPartial(object.shortcut) : undefined;
     message.updateMask = object.updateMask ?? undefined;
     return message;
   },
@@ -478,43 +469,8 @@ export const ShortcutServiceDefinition = {
           8410: [new Uint8Array([6, 112, 97, 114, 101, 110, 116])],
           578365826: [
             new Uint8Array([
-              36,
-              18,
-              34,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              112,
-              97,
-              114,
-              101,
-              110,
-              116,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              125,
-              47,
-              115,
-              104,
-              111,
-              114,
-              116,
-              99,
-              117,
-              116,
-              115,
+              36, 18, 34, 47, 97, 112, 105, 47, 118, 49, 47, 123, 112, 97, 114, 101, 110, 116, 61, 117, 115, 101, 114, 115, 47, 42, 125, 47,
+              115, 104, 111, 114, 116, 99, 117, 116, 115,
             ]),
           ],
         },
@@ -532,43 +488,8 @@ export const ShortcutServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              36,
-              18,
-              34,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              47,
-              115,
-              104,
-              111,
-              114,
-              116,
-              99,
-              117,
-              116,
-              115,
-              47,
-              42,
-              125,
+              36, 18, 34, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 117, 115, 101, 114, 115, 47, 42, 47, 115, 104, 111,
+              114, 116, 99, 117, 116, 115, 47, 42, 125,
             ]),
           ],
         },
@@ -586,53 +507,8 @@ export const ShortcutServiceDefinition = {
           8410: [new Uint8Array([15, 112, 97, 114, 101, 110, 116, 44, 115, 104, 111, 114, 116, 99, 117, 116])],
           578365826: [
             new Uint8Array([
-              46,
-              58,
-              8,
-              115,
-              104,
-              111,
-              114,
-              116,
-              99,
-              117,
-              116,
-              34,
-              34,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              112,
-              97,
-              114,
-              101,
-              110,
-              116,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              125,
-              47,
-              115,
-              104,
-              111,
-              114,
-              116,
-              99,
-              117,
-              116,
-              115,
+              46, 58, 8, 115, 104, 111, 114, 116, 99, 117, 116, 34, 34, 47, 97, 112, 105, 47, 118, 49, 47, 123, 112, 97, 114, 101, 110, 116,
+              61, 117, 115, 101, 114, 115, 47, 42, 125, 47, 115, 104, 111, 114, 116, 99, 117, 116, 115,
             ]),
           ],
         },
@@ -647,88 +523,11 @@ export const ShortcutServiceDefinition = {
       responseStream: false,
       options: {
         _unknownFields: {
-          8410: [
-            new Uint8Array([
-              20,
-              115,
-              104,
-              111,
-              114,
-              116,
-              99,
-              117,
-              116,
-              44,
-              117,
-              112,
-              100,
-              97,
-              116,
-              101,
-              95,
-              109,
-              97,
-              115,
-              107,
-            ]),
-          ],
+          8410: [new Uint8Array([20, 115, 104, 111, 114, 116, 99, 117, 116, 44, 117, 112, 100, 97, 116, 101, 95, 109, 97, 115, 107])],
           578365826: [
             new Uint8Array([
-              55,
-              58,
-              8,
-              115,
-              104,
-              111,
-              114,
-              116,
-              99,
-              117,
-              116,
-              50,
-              43,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              115,
-              104,
-              111,
-              114,
-              116,
-              99,
-              117,
-              116,
-              46,
-              110,
-              97,
-              109,
-              101,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              47,
-              115,
-              104,
-              111,
-              114,
-              116,
-              99,
-              117,
-              116,
-              115,
-              47,
-              42,
+              55, 58, 8, 115, 104, 111, 114, 116, 99, 117, 116, 50, 43, 47, 97, 112, 105, 47, 118, 49, 47, 123, 115, 104, 111, 114, 116, 99,
+              117, 116, 46, 110, 97, 109, 101, 61, 117, 115, 101, 114, 115, 47, 42, 47, 115, 104, 111, 114, 116, 99, 117, 116, 115, 47, 42,
               125,
             ]),
           ],
@@ -747,43 +546,8 @@ export const ShortcutServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              36,
-              42,
-              34,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              117,
-              115,
-              101,
-              114,
-              115,
-              47,
-              42,
-              47,
-              115,
-              104,
-              111,
-              114,
-              116,
-              99,
-              117,
-              116,
-              115,
-              47,
-              42,
-              125,
+              36, 42, 34, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 117, 115, 101, 114, 115, 47, 42, 47, 115, 104, 111,
+              114, 116, 99, 117, 116, 115, 47, 42, 125,
             ]),
           ],
         },
@@ -794,11 +558,15 @@ export const ShortcutServiceDefinition = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends globalThis.Array<infer U> ? globalThis.Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>;
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends globalThis.Array<infer U>
+    ? globalThis.Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 export interface MessageFns<T> {
   encode(message: T, writer?: BinaryWriter): BinaryWriter;

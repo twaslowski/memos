@@ -3,7 +3,6 @@
 //   protoc-gen-ts_proto  v2.6.1
 //   protoc               unknown
 // source: api/v1/activity_service.proto
-
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
 import { Timestamp } from "../../google/protobuf/timestamp";
@@ -26,9 +25,7 @@ export interface Activity {
   /** The level of the activity. */
   level: Activity_Level;
   /** The create time of the activity. */
-  createTime?:
-    | Date
-    | undefined;
+  createTime?: Date | undefined;
   /** The payload of the activity. */
   payload?: ActivityPayload | undefined;
 }
@@ -287,9 +284,7 @@ export const Activity: MessageFns<Activity> = {
     message.type = object.type ?? Activity_Type.TYPE_UNSPECIFIED;
     message.level = object.level ?? Activity_Level.LEVEL_UNSPECIFIED;
     message.createTime = object.createTime ?? undefined;
-    message.payload = (object.payload !== undefined && object.payload !== null)
-      ? ActivityPayload.fromPartial(object.payload)
-      : undefined;
+    message.payload = object.payload !== undefined && object.payload !== null ? ActivityPayload.fromPartial(object.payload) : undefined;
     return message;
   },
 };
@@ -335,9 +330,10 @@ export const ActivityPayload: MessageFns<ActivityPayload> = {
   },
   fromPartial(object: DeepPartial<ActivityPayload>): ActivityPayload {
     const message = createBaseActivityPayload();
-    message.memoComment = (object.memoComment !== undefined && object.memoComment !== null)
-      ? ActivityMemoCommentPayload.fromPartial(object.memoComment)
-      : undefined;
+    message.memoComment =
+      object.memoComment !== undefined && object.memoComment !== null
+        ? ActivityMemoCommentPayload.fromPartial(object.memoComment)
+        : undefined;
     return message;
   },
 };
@@ -576,31 +572,7 @@ export const ActivityServiceDefinition = {
       responseStream: false,
       options: {
         _unknownFields: {
-          578365826: [
-            new Uint8Array([
-              20,
-              18,
-              18,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              97,
-              99,
-              116,
-              105,
-              118,
-              105,
-              116,
-              105,
-              101,
-              115,
-            ]),
-          ],
+          578365826: [new Uint8Array([20, 18, 18, 47, 97, 112, 105, 47, 118, 49, 47, 97, 99, 116, 105, 118, 105, 116, 105, 101, 115])],
         },
       },
     },
@@ -616,36 +588,8 @@ export const ActivityServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              29,
-              18,
-              27,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              97,
-              99,
-              116,
-              105,
-              118,
-              105,
-              116,
-              105,
-              101,
-              115,
-              47,
-              42,
-              125,
+              29, 18, 27, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 97, 99, 116, 105, 118, 105, 116, 105, 101, 115, 47,
+              42, 125,
             ]),
           ],
         },
@@ -656,11 +600,15 @@ export const ActivityServiceDefinition = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends globalThis.Array<infer U> ? globalThis.Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>;
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends globalThis.Array<infer U>
+    ? globalThis.Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function toTimestamp(date: Date): Timestamp {
   const seconds = Math.trunc(date.getTime() / 1_000);

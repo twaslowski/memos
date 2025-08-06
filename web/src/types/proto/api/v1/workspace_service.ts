@@ -3,7 +3,6 @@
 //   protoc-gen-ts_proto  v2.6.1
 //   protoc               unknown
 // source: api/v1/workspace_service.proto
-
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
 import { FieldMask } from "../../google/protobuf/field_mask";
@@ -26,8 +25,7 @@ export interface WorkspaceProfile {
 }
 
 /** Request for workspace profile. */
-export interface GetWorkspaceProfileRequest {
-}
+export interface GetWorkspaceProfileRequest {}
 
 /** A workspace setting resource. */
 export interface WorkspaceSetting {
@@ -106,9 +104,7 @@ export interface WorkspaceSetting_GeneralSetting {
   /** additional_style is the additional style. */
   additionalStyle: string;
   /** custom_profile is the custom profile. */
-  customProfile?:
-    | WorkspaceSetting_GeneralSetting_CustomProfile
-    | undefined;
+  customProfile?: WorkspaceSetting_GeneralSetting_CustomProfile | undefined;
   /**
    * week_start_day_offset is the week start day offset from Sunday.
    * 0: Sunday, 1: Monday, 2: Tuesday, 3: Wednesday, 4: Thursday, 5: Friday, 6: Saturday
@@ -157,9 +153,7 @@ export enum WorkspaceSetting_StorageSetting_StorageType {
   UNRECOGNIZED = "UNRECOGNIZED",
 }
 
-export function workspaceSetting_StorageSetting_StorageTypeFromJSON(
-  object: any,
-): WorkspaceSetting_StorageSetting_StorageType {
+export function workspaceSetting_StorageSetting_StorageTypeFromJSON(object: any): WorkspaceSetting_StorageSetting_StorageType {
   switch (object) {
     case 0:
     case "STORAGE_TYPE_UNSPECIFIED":
@@ -180,9 +174,7 @@ export function workspaceSetting_StorageSetting_StorageTypeFromJSON(
   }
 }
 
-export function workspaceSetting_StorageSetting_StorageTypeToNumber(
-  object: WorkspaceSetting_StorageSetting_StorageType,
-): number {
+export function workspaceSetting_StorageSetting_StorageTypeToNumber(object: WorkspaceSetting_StorageSetting_StorageType): number {
   switch (object) {
     case WorkspaceSetting_StorageSetting_StorageType.STORAGE_TYPE_UNSPECIFIED:
       return 0;
@@ -245,9 +237,7 @@ export interface GetWorkspaceSettingRequest {
 /** Request message for UpdateWorkspaceSetting method. */
 export interface UpdateWorkspaceSettingRequest {
   /** The workspace setting resource which replaces the resource on the server. */
-  setting?:
-    | WorkspaceSetting
-    | undefined;
+  setting?: WorkspaceSetting | undefined;
   /** The list of fields to update. */
   updateMask?: string[] | undefined;
 }
@@ -443,15 +433,18 @@ export const WorkspaceSetting: MessageFns<WorkspaceSetting> = {
   fromPartial(object: DeepPartial<WorkspaceSetting>): WorkspaceSetting {
     const message = createBaseWorkspaceSetting();
     message.name = object.name ?? "";
-    message.generalSetting = (object.generalSetting !== undefined && object.generalSetting !== null)
-      ? WorkspaceSetting_GeneralSetting.fromPartial(object.generalSetting)
-      : undefined;
-    message.storageSetting = (object.storageSetting !== undefined && object.storageSetting !== null)
-      ? WorkspaceSetting_StorageSetting.fromPartial(object.storageSetting)
-      : undefined;
-    message.memoRelatedSetting = (object.memoRelatedSetting !== undefined && object.memoRelatedSetting !== null)
-      ? WorkspaceSetting_MemoRelatedSetting.fromPartial(object.memoRelatedSetting)
-      : undefined;
+    message.generalSetting =
+      object.generalSetting !== undefined && object.generalSetting !== null
+        ? WorkspaceSetting_GeneralSetting.fromPartial(object.generalSetting)
+        : undefined;
+    message.storageSetting =
+      object.storageSetting !== undefined && object.storageSetting !== null
+        ? WorkspaceSetting_StorageSetting.fromPartial(object.storageSetting)
+        : undefined;
+    message.memoRelatedSetting =
+      object.memoRelatedSetting !== undefined && object.memoRelatedSetting !== null
+        ? WorkspaceSetting_MemoRelatedSetting.fromPartial(object.memoRelatedSetting)
+        : undefined;
     return message;
   },
 };
@@ -600,9 +593,10 @@ export const WorkspaceSetting_GeneralSetting: MessageFns<WorkspaceSetting_Genera
     message.disallowPasswordAuth = object.disallowPasswordAuth ?? false;
     message.additionalScript = object.additionalScript ?? "";
     message.additionalStyle = object.additionalStyle ?? "";
-    message.customProfile = (object.customProfile !== undefined && object.customProfile !== null)
-      ? WorkspaceSetting_GeneralSetting_CustomProfile.fromPartial(object.customProfile)
-      : undefined;
+    message.customProfile =
+      object.customProfile !== undefined && object.customProfile !== null
+        ? WorkspaceSetting_GeneralSetting_CustomProfile.fromPartial(object.customProfile)
+        : undefined;
     message.weekStartDayOffset = object.weekStartDayOffset ?? 0;
     message.disallowChangeUsername = object.disallowChangeUsername ?? false;
     message.disallowChangeNickname = object.disallowChangeNickname ?? false;
@@ -614,103 +608,95 @@ function createBaseWorkspaceSetting_GeneralSetting_CustomProfile(): WorkspaceSet
   return { title: "", description: "", logoUrl: "", locale: "", appearance: "" };
 }
 
-export const WorkspaceSetting_GeneralSetting_CustomProfile: MessageFns<WorkspaceSetting_GeneralSetting_CustomProfile> =
-  {
-    encode(
-      message: WorkspaceSetting_GeneralSetting_CustomProfile,
-      writer: BinaryWriter = new BinaryWriter(),
-    ): BinaryWriter {
-      if (message.title !== "") {
-        writer.uint32(10).string(message.title);
-      }
-      if (message.description !== "") {
-        writer.uint32(18).string(message.description);
-      }
-      if (message.logoUrl !== "") {
-        writer.uint32(26).string(message.logoUrl);
-      }
-      if (message.locale !== "") {
-        writer.uint32(34).string(message.locale);
-      }
-      if (message.appearance !== "") {
-        writer.uint32(42).string(message.appearance);
-      }
-      return writer;
-    },
+export const WorkspaceSetting_GeneralSetting_CustomProfile: MessageFns<WorkspaceSetting_GeneralSetting_CustomProfile> = {
+  encode(message: WorkspaceSetting_GeneralSetting_CustomProfile, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.title !== "") {
+      writer.uint32(10).string(message.title);
+    }
+    if (message.description !== "") {
+      writer.uint32(18).string(message.description);
+    }
+    if (message.logoUrl !== "") {
+      writer.uint32(26).string(message.logoUrl);
+    }
+    if (message.locale !== "") {
+      writer.uint32(34).string(message.locale);
+    }
+    if (message.appearance !== "") {
+      writer.uint32(42).string(message.appearance);
+    }
+    return writer;
+  },
 
-    decode(input: BinaryReader | Uint8Array, length?: number): WorkspaceSetting_GeneralSetting_CustomProfile {
-      const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-      let end = length === undefined ? reader.len : reader.pos + length;
-      const message = createBaseWorkspaceSetting_GeneralSetting_CustomProfile();
-      while (reader.pos < end) {
-        const tag = reader.uint32();
-        switch (tag >>> 3) {
-          case 1: {
-            if (tag !== 10) {
-              break;
-            }
-
-            message.title = reader.string();
-            continue;
+  decode(input: BinaryReader | Uint8Array, length?: number): WorkspaceSetting_GeneralSetting_CustomProfile {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseWorkspaceSetting_GeneralSetting_CustomProfile();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
           }
-          case 2: {
-            if (tag !== 18) {
-              break;
-            }
 
-            message.description = reader.string();
-            continue;
-          }
-          case 3: {
-            if (tag !== 26) {
-              break;
-            }
-
-            message.logoUrl = reader.string();
-            continue;
-          }
-          case 4: {
-            if (tag !== 34) {
-              break;
-            }
-
-            message.locale = reader.string();
-            continue;
-          }
-          case 5: {
-            if (tag !== 42) {
-              break;
-            }
-
-            message.appearance = reader.string();
-            continue;
-          }
+          message.title = reader.string();
+          continue;
         }
-        if ((tag & 7) === 4 || tag === 0) {
-          break;
-        }
-        reader.skip(tag & 7);
-      }
-      return message;
-    },
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
 
-    create(
-      base?: DeepPartial<WorkspaceSetting_GeneralSetting_CustomProfile>,
-    ): WorkspaceSetting_GeneralSetting_CustomProfile {
-      return WorkspaceSetting_GeneralSetting_CustomProfile.fromPartial(base ?? {});
-    },
-    fromPartial(
-      object: DeepPartial<WorkspaceSetting_GeneralSetting_CustomProfile>,
-    ): WorkspaceSetting_GeneralSetting_CustomProfile {
-      const message = createBaseWorkspaceSetting_GeneralSetting_CustomProfile();
-      message.title = object.title ?? "";
-      message.description = object.description ?? "";
-      message.logoUrl = object.logoUrl ?? "";
-      message.locale = object.locale ?? "";
-      message.appearance = object.appearance ?? "";
-      return message;
-    },
-  };
+          message.description = reader.string();
+          continue;
+        }
+        case 3: {
+          if (tag !== 26) {
+            break;
+          }
+
+          message.logoUrl = reader.string();
+          continue;
+        }
+        case 4: {
+          if (tag !== 34) {
+            break;
+          }
+
+          message.locale = reader.string();
+          continue;
+        }
+        case 5: {
+          if (tag !== 42) {
+            break;
+          }
+
+          message.appearance = reader.string();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  create(base?: DeepPartial<WorkspaceSetting_GeneralSetting_CustomProfile>): WorkspaceSetting_GeneralSetting_CustomProfile {
+    return WorkspaceSetting_GeneralSetting_CustomProfile.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<WorkspaceSetting_GeneralSetting_CustomProfile>): WorkspaceSetting_GeneralSetting_CustomProfile {
+    const message = createBaseWorkspaceSetting_GeneralSetting_CustomProfile();
+    message.title = object.title ?? "";
+    message.description = object.description ?? "";
+    message.logoUrl = object.logoUrl ?? "";
+    message.locale = object.locale ?? "";
+    message.appearance = object.appearance ?? "";
+    return message;
+  },
+};
 
 function createBaseWorkspaceSetting_StorageSetting(): WorkspaceSetting_StorageSetting {
   return {
@@ -794,9 +780,10 @@ export const WorkspaceSetting_StorageSetting: MessageFns<WorkspaceSetting_Storag
     message.storageType = object.storageType ?? WorkspaceSetting_StorageSetting_StorageType.STORAGE_TYPE_UNSPECIFIED;
     message.filepathTemplate = object.filepathTemplate ?? "";
     message.uploadSizeLimitMb = object.uploadSizeLimitMb ?? 0;
-    message.s3Config = (object.s3Config !== undefined && object.s3Config !== null)
-      ? WorkspaceSetting_StorageSetting_S3Config.fromPartial(object.s3Config)
-      : undefined;
+    message.s3Config =
+      object.s3Config !== undefined && object.s3Config !== null
+        ? WorkspaceSetting_StorageSetting_S3Config.fromPartial(object.s3Config)
+        : undefined;
     return message;
   },
 };
@@ -1157,9 +1144,7 @@ export const UpdateWorkspaceSettingRequest: MessageFns<UpdateWorkspaceSettingReq
   },
   fromPartial(object: DeepPartial<UpdateWorkspaceSettingRequest>): UpdateWorkspaceSettingRequest {
     const message = createBaseUpdateWorkspaceSettingRequest();
-    message.setting = (object.setting !== undefined && object.setting !== null)
-      ? WorkspaceSetting.fromPartial(object.setting)
-      : undefined;
+    message.setting = object.setting !== undefined && object.setting !== null ? WorkspaceSetting.fromPartial(object.setting) : undefined;
     message.updateMask = object.updateMask ?? undefined;
     return message;
   },
@@ -1181,33 +1166,7 @@ export const WorkspaceServiceDefinition = {
         _unknownFields: {
           578365826: [
             new Uint8Array([
-              27,
-              18,
-              25,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              119,
-              111,
-              114,
-              107,
-              115,
-              112,
-              97,
-              99,
-              101,
-              47,
-              112,
-              114,
-              111,
-              102,
-              105,
-              108,
+              27, 18, 25, 47, 97, 112, 105, 47, 118, 49, 47, 119, 111, 114, 107, 115, 112, 97, 99, 101, 47, 112, 114, 111, 102, 105, 108,
               101,
             ]),
           ],
@@ -1226,44 +1185,8 @@ export const WorkspaceServiceDefinition = {
           8410: [new Uint8Array([4, 110, 97, 109, 101])],
           578365826: [
             new Uint8Array([
-              37,
-              18,
-              35,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              110,
-              97,
-              109,
-              101,
-              61,
-              119,
-              111,
-              114,
-              107,
-              115,
-              112,
-              97,
-              99,
-              101,
-              47,
-              115,
-              101,
-              116,
-              116,
-              105,
-              110,
-              103,
-              115,
-              47,
-              42,
-              125,
+              37, 18, 35, 47, 97, 112, 105, 47, 118, 49, 47, 123, 110, 97, 109, 101, 61, 119, 111, 114, 107, 115, 112, 97, 99, 101, 47, 115,
+              101, 116, 116, 105, 110, 103, 115, 47, 42, 125,
             ]),
           ],
         },
@@ -1278,86 +1201,11 @@ export const WorkspaceServiceDefinition = {
       responseStream: false,
       options: {
         _unknownFields: {
-          8410: [
-            new Uint8Array([
-              19,
-              115,
-              101,
-              116,
-              116,
-              105,
-              110,
-              103,
-              44,
-              117,
-              112,
-              100,
-              97,
-              116,
-              101,
-              95,
-              109,
-              97,
-              115,
-              107,
-            ]),
-          ],
+          8410: [new Uint8Array([19, 115, 101, 116, 116, 105, 110, 103, 44, 117, 112, 100, 97, 116, 101, 95, 109, 97, 115, 107])],
           578365826: [
             new Uint8Array([
-              54,
-              58,
-              7,
-              115,
-              101,
-              116,
-              116,
-              105,
-              110,
-              103,
-              50,
-              43,
-              47,
-              97,
-              112,
-              105,
-              47,
-              118,
-              49,
-              47,
-              123,
-              115,
-              101,
-              116,
-              116,
-              105,
-              110,
-              103,
-              46,
-              110,
-              97,
-              109,
-              101,
-              61,
-              119,
-              111,
-              114,
-              107,
-              115,
-              112,
-              97,
-              99,
-              101,
-              47,
-              115,
-              101,
-              116,
-              116,
-              105,
-              110,
-              103,
-              115,
-              47,
-              42,
+              54, 58, 7, 115, 101, 116, 116, 105, 110, 103, 50, 43, 47, 97, 112, 105, 47, 118, 49, 47, 123, 115, 101, 116, 116, 105, 110,
+              103, 46, 110, 97, 109, 101, 61, 119, 111, 114, 107, 115, 112, 97, 99, 101, 47, 115, 101, 116, 116, 105, 110, 103, 115, 47, 42,
               125,
             ]),
           ],
@@ -1369,11 +1217,15 @@ export const WorkspaceServiceDefinition = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends globalThis.Array<infer U> ? globalThis.Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
-  : Partial<T>;
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends globalThis.Array<infer U>
+    ? globalThis.Array<DeepPartial<U>>
+    : T extends ReadonlyArray<infer U>
+      ? ReadonlyArray<DeepPartial<U>>
+      : T extends {}
+        ? { [K in keyof T]?: DeepPartial<T[K]> }
+        : Partial<T>;
 
 function longToNumber(int64: { toString(): string }): number {
   const num = globalThis.Number(int64.toString());
