@@ -2,7 +2,7 @@ name: Build and Push Canary Image
 
 on:
   push:
-    branches: [main]
+    branches: [develop]
 
 env:
   DOCKER_PLATFORMS: |
@@ -40,8 +40,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            neosmemo/memos
-            ghcr.io/usememos/memos
+            twaslowski/memos
           flavor: |
             latest=false
           tags: |
