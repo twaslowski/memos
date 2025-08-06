@@ -1,0 +1,26 @@
+version: '3'
+tasks:
+
+  run:backend:
+    desc: Run the backend server
+    cmds:
+      - go run ./bin/memos/main.go --mode dev --port 8081
+
+  run:frontend:
+    desc: Run the frontend dev server
+    dir: web
+    cmds:
+      - pnpm dev
+
+  lint:web:
+    desc: Run web lint
+    dir: web
+    cmds:
+      - pnpm lint:fix
+      - pnpm lint
+
+  test:backend:
+    desc: Run backend tests
+    cmds:
+      - go test -v ./... | tee test.log; exit ${PIPESTATUS[0]}
+      - grep --color=never -e '--- PASS:' -e '--- FAIL:' test.log | sed 's/[:()]//g' | awk '{print $2,$3,$4}' | sort -t' ' -nk3 -r | awk '{sum += $3; print $1,$2,$3,sum"s"}'
